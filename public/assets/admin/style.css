@@ -2,3 +2,37 @@
     width: 90%;
     margin: auto;
 }
+.table-select-box {
+    width: 80%;
+    margin: auto;
+}
+.table-select-box select {
+    padding: 6px 13px;
+    width: 78%;
+    border-radius: 7px;
+    margin: auto;
+}
+.table-filter {
+    text-align: right;
+    margin-bottom: 11px;
+}
+.btn-outline-warning{
+    color: #F48222 !important;
+    border-color: #F48222 !important;
+}
+.btn-outline-warning:hover, .input-group-text {
+    color: #fff !important;
+    background-color: #F48222 !important;
+    border-color: #F48222 !important;
+}
+.custom-val-color {
+    color: #f46a6a;
+}
+.form-check-warning .form-check-input:checked, .form-radio-warning .form-check-input:checked {
+    background-color: #F48222 !important;
+    border-color: #F48222 !important;
+}
+.button-group {
+    margin-bottom: 30px;
+    text-align: right;
+}

@@ -8,13 +8,13 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('root')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('client.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Clients</span>
                     </a>

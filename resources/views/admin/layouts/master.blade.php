@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> @yield('title') | Admin</title>
+    <title> @yield('title') | Trip</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -35,10 +35,6 @@
         <!-- end main content-->
     </div>
     <!-- END layout-wrapper -->
-
-    <!-- Right Sidebar -->
-    @include('admin.layouts.right-sidebar')
-    <!-- /Right-bar -->
 
     <!-- JAVASCRIPT -->
     @include('admin.layouts.vendor-scripts')
