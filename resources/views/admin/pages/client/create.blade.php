@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <div class="content-warpper">
-        <form class="custom-validation" action="">
+        <form class="custom-validation" action="" id="custom-form">
             <div class="row">
                 <div class="col-md-7">
                     <div class="col-md-12">
@@ -205,7 +205,7 @@
             </div>
             <div class="button-group">
                 <button type="button" class="btn btn-outline-primary waves-effect waves-light">Back</button>
-                <button type="button" class="btn btn-outline-primary waves-effect waves-light">Reset</button>
+                <button type="button" class="btn btn-outline-primary waves-effect waves-light reset-btn">Reset</button>
                 <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
             </div>
         </form>
@@ -221,7 +221,11 @@
     <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
-
-    <!-- form advanced init -->
-    <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".reset-btn").click(function(){
+                $("#custom-form").trigger("reset");
+            });
+        });
+    </script>
 @endsection

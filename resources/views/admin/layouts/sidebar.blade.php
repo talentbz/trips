@@ -14,13 +14,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('client.index')}}" class="waves-effect">
+                    <a href="{{route('admin.client.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Clients</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('admin.bus.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Buses</span>
                     </a>
@@ -67,8 +67,8 @@
                         <span key="t-layouts">Miscellaneous</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="layouts-light-sidebar"
-                                key="t-light-sidebar">@lang('translation.Light_Sidebar')</a></li>
+                        <li><a href="{{route('admin.miscellaneous.city.index')}}"
+                                key="t-light-sidebar">Cities</a></li>
                         <li><a href="layouts-compact-sidebar"
                                 key="t-compact-sidebar">@lang('translation.Compact_Sidebar')</a></li>
                         <li><a href="layouts-icon-sidebar"

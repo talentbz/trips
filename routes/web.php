@@ -23,7 +23,11 @@ Route::get('/', [App\Http\Controllers\FrontController::class, 'index'])->name('f
 Route::prefix('/admin')->middleware(['auth:web', 'Admin'])->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
     //Client section
-    Route::resource('client', App\Http\Controllers\Admin\ClientController::class);
+    Route::resource('client', App\Http\Controllers\Admin\ClientController::class, ['as' => 'admin']);
+    Route::resource('bus', App\Http\Controllers\Admin\BusController::class, ['as' => 'admin']);
+    Route::prefix('/miscellaneous')->group(function () {
+        Route::resource('city', App\Http\Controllers\Admin\CityController::class, ['as' => 'admin.miscellaneous']);
+    });
 });
 
 
