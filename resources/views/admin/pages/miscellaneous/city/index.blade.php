@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <!-- add city section -->
-                <div class="card">
+                <div class="card add-new-form">
                     <div class="card-body">
                         <form class="custom-validation" action="" id="custom-form">
                             <div class="row">
@@ -63,7 +63,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-filter">
-                            <a href="javascript: void(0);" class="btn btn-outline-warning btn-rounded waves-effect waves-light add-new"><i class="fas fa-plus"></i> ADD CLIENT</a> 
+                            <a href="javascript: void(0);" class="btn btn-outline-warning btn-rounded waves-effect waves-light add-new"><i class="fas fa-plus"></i> ADD CITY</a> 
                         </div>
                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100 datatable">
                             <thead>
@@ -78,18 +78,13 @@
                                 <tr>
                                     <td>1</td>
                                     <td>System Architect</td>
-                                    <td>
-                                        <div class="table-select-box">
-                                            <select class="form-select form-control-sm">
-                                                <option>Select</option>
-                                                <option>Large select</option>
-                                                <option>Small select</option>
-                                            </select>
-                                        </div>
+                                    <td class="text-center">
+                                        <span class="badge badge-pill badge-soft-success font-size-12">Active</span>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">Edit</button>
-                                        <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">Delete</button>
+                                        <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light edit">Edit</button>
+                                        <a href="javascript:void(0);" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light confirm_delete" data-id="1" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal">Delete</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -100,20 +95,30 @@
             </div> <!-- end col -->
         </div> <!-- end row -->
     </div>
+ <!-- delete modal content -->
+ <div id="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0" id="myModalLabel">User Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you delete seleted user?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary waves-effect"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light delete_button">Yes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @endsection
 @section('script')
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
 
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
-    <script>
-       $(document).ready(function(){
-            $(".reset-btn").click(function(){
-                $("#custom-form").trigger("reset");
-            });
-            // $("#custom-form").hide()
-            $(".add-new").click(function(){
-                $("#custom-form").slideUp(1000);
-            });
-        });
-    </script>
+    <script src="{{ URL::asset('/assets/admin/miscellaneous/city/index.js') }}"></script>
 @endsection

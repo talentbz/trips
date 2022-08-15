@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Miscellaneous;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.city.index');
+        return view('admin.pages.miscellaneous.city.index');
     }
 
     /**
