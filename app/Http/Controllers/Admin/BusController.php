@@ -14,7 +14,7 @@ class BusController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pages.bus.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class BusController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.bus.create');
     }
 
     /**
