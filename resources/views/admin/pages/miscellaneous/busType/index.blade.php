@@ -9,7 +9,8 @@
                 <!-- add city section -->
                 <div class="card add-new-form">
                     <div class="card-body">
-                        <form class="custom-validation" action="" id="custom-form">
+                        <form id="custom-form" class="custom-validation" method= "POST" enctype="multipart/form-data">
+                            {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="row">
@@ -17,14 +18,15 @@
                                             <div class="mb-3">
                                                 <label class="form-label"><span class="custom-val-color">*</span> TYPE (EN)</label>
                                                 <input type="text" class="form-control" name="name_en" required>
+                                                <input type="hidden" name="id">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label"><span class="custom-val-color">*</span> STATUS</label>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-check form-radio-warning mb-3">
-                                                            <input class="form-check-input" type="radio" name="bus_type"
-                                                                id="status_1" checked>
+                                                            <input class="form-check-input" type="radio" name="status"
+                                                                id="status_1" value="1">
                                                             <label class="form-check-label" for="status_1">
                                                                 Active
                                                             </label>
@@ -32,8 +34,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-check form-radio-warning">
-                                                            <input class="form-check-input" type="radio" name="bus_type"
-                                                                id="status_2">
+                                                            <input class="form-check-input" type="radio" name="status"
+                                                                id="status_2" value="0">
                                                             <label class="form-check-label" for="status_2">
                                                                 Inactive
                                                             </label>
@@ -107,5 +109,9 @@
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
 
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
-    <script src="{{ URL::asset('/assets/admin/miscellaneous/city/index.js') }}"></script>
+    <script src="{{ URL::asset('/assets/admin/miscellaneous/busType/index.js') }}"></script>
+    <script>
+        store = "{{route('admin.miscellaneous.bus_type.store')}}";
+        list_url = "{{route('admin.miscellaneous.bus_type.index')}}";
+    </script>
 @endsection

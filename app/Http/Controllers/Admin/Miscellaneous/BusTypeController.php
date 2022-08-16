@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Miscellaneous;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use \Illuminate\Support\Facades\Validator;
 use App\Models\BusType;
 
 class BusTypeController extends Controller
@@ -39,7 +41,39 @@ class BusTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'status' => 'required',
+        ]);
+        $attributeNames = array(
+            'status' => 'Status',
+        );
+        $validator->setAttributeNames($attributeNames);
+        if($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()->all()]);
+        } else {
+            $exist_data = BusType::where('type_en', $request->name_en)->orWhere('type_ar', $request->name_ar)->get();
+            if($request->id){
+                // update date
+                $bus_type = BusType::findOrFail($request->id);
+                $bus_type->type_en = $request->name_en;
+                $bus_type->type_ar = $request->name_ar;
+                $bus_type->status = $request->status;
+                $bus_type->save();
+                return response()->json(['result' => "success"]);
+            } else {
+                // create date
+                if(count($exist_data) > 0){
+                    return response()->json(['result' => "faild"]);    
+                } else {
+                    $bus_type = new BusType;
+                    $bus_type->type_en = $request->name_en;
+                    $bus_type->type_ar = $request->name_ar;
+                    $bus_type->status = $request->status;
+                    $bus_type->save();
+                    return response()->json(['result' => "success"]);
+                }
+            }
+        }
     }
 
     /**
@@ -50,7 +84,8 @@ class BusTypeController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = BusType::where('id', $id)->first();
+        return response()->json(['data' => $data]);
     }
 
     /**

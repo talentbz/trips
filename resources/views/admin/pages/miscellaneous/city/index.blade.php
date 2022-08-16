@@ -120,5 +120,5 @@
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
 
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
-    <script src="{{ URL::asset('/assets/admin/miscellaneous/city/index.js') }}"></script>
+    <script src="{{ URL::asset('/assets/admin/miscellaneous/busType/index.js') }}"></script>
 @endsection

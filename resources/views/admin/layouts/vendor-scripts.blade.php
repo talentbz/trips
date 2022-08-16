@@ -8,6 +8,10 @@
 <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
 <!-- Datatable init js -->
 <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+<!-- toastr plugin -->
+<script src="{{ URL::asset('/assets/libs/toastr/toastr.min.js') }}"></script>
+<!-- toastr init -->
+<script src="{{ URL::asset('/assets/js/pages/toastr.init.js') }}"></script>
 <script>
     $('#change-password').on('submit',function(event){
         event.preventDefault();
