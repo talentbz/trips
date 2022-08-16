@@ -14,7 +14,7 @@ class TripsBusController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pages.tripBus.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class TripsBusController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.tripBus.create');
     }
 
     /**

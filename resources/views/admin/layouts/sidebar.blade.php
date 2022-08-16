@@ -36,19 +36,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('admin.trip.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Trips</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('admin.trip_bus.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Trips Buses</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('admin.daily_trip.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Daily Trips</span>
                     </a>

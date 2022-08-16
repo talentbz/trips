@@ -44,6 +44,16 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+.trip-frequency-check {
+    font-size: 15px;
+    text-align: center;
+    background: #F48222;
+    border-radius: 5px;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 14px;
+}
 
 @media only screen and (max-width: 768px) {
     #page-topbar{
@@ -53,3 +63,4 @@
         left: 240px !important;
     }
 }
+
