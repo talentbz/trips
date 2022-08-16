@@ -15,6 +15,9 @@ class CreateBusMaintenanceTypesTable extends Migration
     {
         Schema::create('bus_maintenance_types', function (Blueprint $table) {
             $table->id();
+            $table->string('type_en');
+            $table->string('type_ar');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

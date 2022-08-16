@@ -15,6 +15,21 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
+            $table->string('trip_name_en');
+            $table->string('trip_name_ar');
+            $table->integer('client_id');
+            $table->string('trip_type');
+            $table->string('details')->nullable();
+            $table->string('trip_frequancy');
+            $table->date('first_trip_date');
+            $table->date('last_trip_date');
+            $table->string('origin_city');
+            $table->string('destination_city');
+            $table->string('destination_area');
+            $table->date('departure_time');
+            $table->date('arrival_time');
+            $table->boolean('admin_show');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

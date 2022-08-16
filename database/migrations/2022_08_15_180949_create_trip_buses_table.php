@@ -15,6 +15,10 @@ class CreateTripBusesTable extends Migration
     {
         Schema::create('trip_buses', function (Blueprint $table) {
             $table->id();
+            $table->string('trip_name');
+            $table->string('bus_size');
+            $table->string('bus_no');
+            $table->string('driver_name');
             $table->timestamps();
         });
     }

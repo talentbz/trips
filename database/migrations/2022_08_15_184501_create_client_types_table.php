@@ -15,6 +15,9 @@ class CreateClientTypesTable extends Migration
     {
         Schema::create('client_types', function (Blueprint $table) {
             $table->id();
+            $table->string('type_name_en');
+            $table->string('type_name_ar');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreateBusModelsTable extends Migration
     {
         Schema::create('bus_models', function (Blueprint $table) {
             $table->id();
+            $table->integer('bus_type_id');
+            $table->string('model_en');
+            $table->string('model_ar');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

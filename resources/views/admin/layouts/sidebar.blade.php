@@ -1,6 +1,16 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
-
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <a href="{{route('root')}}" class="logo logo-light">
+            <span class="logo-sm">
+                <img src="{{ URL::asset ('/images/admin/logo-sm.png') }}" alt="" width="100%">
+            </span>
+            <span class="logo-lg">
+                <img src="{{ URL::asset ('/images/admin/logo-large.png') }}" alt="" width="100%">
+            </span>
+        </a>
+    </div>
     <div data-simplebar class="h-100">
 
         <!--- Sidemenu -->
@@ -70,17 +80,17 @@
                         <li><a href="{{route('admin.miscellaneous.city.index')}}"
                                 key="t-light-sidebar">Cities</a></li>
                         <li><a href="layouts-compact-sidebar"
-                                key="t-compact-sidebar">@lang('translation.Compact_Sidebar')</a></li>
-                        <li><a href="layouts-icon-sidebar"
-                                key="t-icon-sidebar">@lang('translation.Icon_Sidebar')</a></li>
-                        <li><a href="layouts-boxed" key="t-boxed-width">@lang('translation.Boxed_Width')</a>
+                                key="t-compact-sidebar">Areas</a></li>
+                        <li><a href="{{route('admin.miscellaneous.bus_type.index')}}"
+                                key="t-icon-sidebar">Bus Types</a></li>
+                        <li><a href="layouts-boxed" key="t-boxed-width">Bus Models</a>
                         </li>
-                        <li><a href="layouts-preloader" key="t-preloader">@lang('translation.Preloader')</a>
+                        <li><a href="layouts-preloader" key="t-preloader">Bus Sizes</a>
                         </li>
                         <li><a href="layouts-colored-sidebar"
-                                key="t-colored-sidebar">@lang('translation.Colored_Sidebar')</a></li>
-                        <li><a href="layouts-scrollable" key="t-scrollable">@lang('translation.Scrollable')</a>
-                        </li>
+                                key="t-colored-sidebar">Client Types</a></li>
+                        <li><a href="layouts-scrollable" key="t-scrollable">Contract Types</a></li>
+                        <li><a href="layouts-scrollable" key="t-scrollable">Maintenace Types</a></li>
                     </ul>
                 </li>
             </ul>

@@ -25,8 +25,15 @@ Route::prefix('/admin')->middleware(['auth:web', 'Admin'])->group(function () {
     //Client section
     Route::resource('client', App\Http\Controllers\Admin\ClientController::class, ['as' => 'admin']);
     Route::resource('bus', App\Http\Controllers\Admin\BusController::class, ['as' => 'admin']);
+    Route::resource('trip', App\Http\Controllers\Admin\TripController::class, ['as' => 'admin']);
+    Route::resource('trip_bus', App\Http\Controllers\Admin\TripsBusController::class, ['as' => 'admin']);
     Route::prefix('/miscellaneous')->group(function () {
         Route::resource('city', App\Http\Controllers\Admin\Miscellaneous\CityController::class, ['as' => 'admin.miscellaneous']);
+        Route::resource('client_type', App\Http\Controllers\Admin\Miscellaneous\ClientTypeController::class, ['as' => 'admin.miscellaneous']);
+        Route::resource('contract_type', App\Http\Controllers\Admin\Miscellaneous\ContractTypeController::class, ['as' => 'admin.miscellaneous']);
+        Route::resource('bus_type', App\Http\Controllers\Admin\Miscellaneous\BusTypeController::class, ['as' => 'admin.miscellaneous']);
+        Route::resource('bus_model', App\Http\Controllers\Admin\Miscellaneous\BusModelController::class, ['as' => 'admin.miscellaneous']);
+        Route::resource('bus_size', App\Http\Controllers\Admin\Miscellaneous\BusSizeController::class, ['as' => 'admin.miscellaneous']);
     });
 });
 

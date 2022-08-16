@@ -15,6 +15,11 @@ class CreateBusMaintenancesTable extends Migration
     {
         Schema::create('bus_maintenances', function (Blueprint $table) {
             $table->id();
+            $table->string('bus_no');
+            $table->integer('maintanence_type_id');
+            $table->string('details')->nullable();
+            $table->date('maintanence_date');
+            $table->integer('cost');
             $table->timestamps();
         });
     }

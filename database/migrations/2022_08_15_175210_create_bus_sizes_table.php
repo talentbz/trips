@@ -15,6 +15,8 @@ class CreateBusSizesTable extends Migration
     {
         Schema::create('bus_sizes', function (Blueprint $table) {
             $table->id();
+            $table->integer('size');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

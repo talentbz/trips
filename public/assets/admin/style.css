@@ -36,3 +36,20 @@
     margin-bottom: 30px;
     text-align: right;
 }
+.sidebar-toggle {
+    left: 70px !important;
+}
+.vertical-menu {
+    background: url('../../images/admin/sidebar-bg.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+@media only screen and (max-width: 768px) {
+    #page-topbar{
+        left: 0;
+    }
+    .sidebar-toggle-mobile{
+        left: 240px !important;
+    }
+}
