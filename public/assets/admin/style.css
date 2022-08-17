@@ -1,3 +1,10 @@
+/* @font-face {
+    font-family: "CustomFont";
+    src: url("../fonts/custom/CustomFont.eot");
+    src: url("CustomFont.woff") format("woff"),
+    url("CustomFont.otf") format("opentype"),
+} */
+
 .content-warpper {
     width: 90%;
     margin: auto;
@@ -53,6 +60,11 @@
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 14px;
+}
+.account-pages {
+    background: url('../../images/admin/bg.png');
+    background-repeat: repeat-x;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 768px) {

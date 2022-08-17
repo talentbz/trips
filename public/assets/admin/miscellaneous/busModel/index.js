@@ -17,13 +17,15 @@ $(document).ready(function(){
                 result = res.data;
                 if(result){
                     $("input[name='id']").val(id)
-                    $("input[name='name_en']").val(result.type_en)   
-                    $("input[name='name_ar']").val(result.type_ar)
+                    $("input[name='model_en']").val(result.model_en)   
+                    $("input[name='model_ar']").val(result.model_ar)
                     if(result.status == 1){
                         $("input[name='status'][value='1']").prop('checked', true);
                     } else {
                         $("input[name='status'][value='0']").prop('checked', true);
                     }  
+                    $("select[name='bus_type']").val(result.bus_type_id);
+
                 }
             },
             error: function (res){
@@ -49,7 +51,6 @@ $(document).ready(function(){
             method: 'post',
             data: formData,
             success: function (res) {
-                console.log(res)
                 if(res.result == "success" ){
                     toastr["success"]("Success!!!");
                     setInterval(function(){ 

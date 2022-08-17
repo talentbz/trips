@@ -21,7 +21,7 @@ class CreateBusesTable extends Migration
             $table->date('license_expiry_date');
             $table->integer('bus_type_id');
             $table->string('bus_model_id');
-            $table->date('model_year');
+            $table->string('model_year');
             $table->boolean('status');
             $table->boolean('owner_ship');
             $table->timestamps();

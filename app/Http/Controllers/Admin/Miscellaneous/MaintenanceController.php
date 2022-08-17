@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Admin\Miscellaneous;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use \Illuminate\Support\Facades\Validator;
-use App\Models\BusType;
-use App\Models\BusModel;
+use App\Models\BusMaintenanceType;
 
-class BusModelController extends Controller
+class MaintenanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +16,9 @@ class BusModelController extends Controller
      */
     public function index()
     {
-        $bus_type = BusType::where('status', 1)->get();
-        $bus_model = BusModel::leftJoin('bus_types',  'bus_models.bus_type_id', '=', 'bus_types.id')
-                               ->select('bus_models.*', 'bus_types.type_en')->get();
-        return view('admin.pages.miscellaneous.busModel.index', [
-            'bus_type' => $bus_type,
-            'bus_model' => $bus_model,
+        $maintenance = BusMaintenanceType::get();
+        return view('admin.pages.miscellaneous.busMaintenance.index', [
+            'maintenance' => $maintenance,
         ]);
     }
 
@@ -55,27 +50,25 @@ class BusModelController extends Controller
         if($validator->fails()) {
             return response()->json(['error'=>$validator->errors()->all()]);
         } else {
-            $exist_data = BusModel::where('model_en', $request->model_en)->orWhere('model_ar', $request->model_ar)->get();
+            $exist_data = BusMaintenanceType::where('type_en', $request->name_en)->orWhere('type_ar', $request->name_ar)->get();
             if($request->id){
                 // update date
-                $bus_model = BusModel::findOrFail($request->id);
-                $bus_model->model_en = $request->model_en;
-                $bus_model->model_ar = $request->model_ar;
-                $bus_model->bus_type_id = $request->bus_type;
-                $bus_model->status = $request->status;
-                $bus_model->save();
+                $maintenance = BusMaintenanceType::findOrFail($request->id);
+                $maintenance->type_en = $request->name_en;
+                $maintenance->type_ar = $request->name_ar;
+                $maintenance->status = $request->status;
+                $maintenance->save();
                 return response()->json(['result' => "success"]);
             } else {
                 // create date
                 if(count($exist_data) > 0){
                     return response()->json(['result' => "faild"]);    
                 } else {
-                    $bus_model = new BusModel;
-                    $bus_model->model_en = $request->model_en;
-                    $bus_model->model_ar = $request->model_ar;
-                    $bus_model->bus_type_id = $request->bus_type;
-                    $bus_model->status = $request->status;
-                    $bus_model->save();
+                    $maintenance = new BusMaintenanceType;
+                    $maintenance->type_en = $request->name_en;
+                    $maintenance->type_ar = $request->name_ar;
+                    $maintenance->status = $request->status;
+                    $maintenance->save();
                     return response()->json(['result' => "success"]);
                 }
             }
@@ -90,7 +83,7 @@ class BusModelController extends Controller
      */
     public function show($id)
     {
-        $data = BusModel::where('id', $id)->first();
+        $data = BusMaintenanceType::where('id', $id)->first();
         return response()->json(['data' => $data]);
     }
 

@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('admin.maintenance.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Maintenace Records</span>
                     </a>
@@ -83,14 +83,14 @@
                                 key="t-compact-sidebar">Areas</a></li>
                         <li><a href="{{route('admin.miscellaneous.bus_type.index')}}"
                                 key="t-icon-sidebar">Bus Types</a></li>
-                        <li><a href="layouts-boxed" key="t-boxed-width">Bus Models</a>
+                        <li><a href="{{route('admin.miscellaneous.bus_model.index')}}" key="t-boxed-width">Bus Models</a>
                         </li>
-                        <li><a href="layouts-preloader" key="t-preloader">Bus Sizes</a>
+                        <li><a href="{{route('admin.miscellaneous.bus_size.index')}}" key="t-preloader">Bus Sizes</a>
                         </li>
                         <li><a href="layouts-colored-sidebar"
                                 key="t-colored-sidebar">Client Types</a></li>
                         <li><a href="layouts-scrollable" key="t-scrollable">Contract Types</a></li>
-                        <li><a href="layouts-scrollable" key="t-scrollable">Maintenace Types</a></li>
+                        <li><a href="{{route('admin.miscellaneous.bus_maintenance.index')}}" key="t-scrollable">Maintenace Types</a></li>
                     </ul>
                 </li>
             </ul>

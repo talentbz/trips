@@ -21,10 +21,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> BUS SIZE</label>
-                                    <select class="form-select" name="bus_size">
-                                        <option>Select Bus Size</option>
-                                        <option>10</option>
-                                        <option>20</option>
+                                    <select class="form-select" name="bus_size" required>
+                                        <option value="">Select bus size</option>
+                                        @foreach($bus_size as $row)
+                                        <option value="{{$row->id}}">{{$row->size}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -42,34 +43,26 @@
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> TYPE</label>
-                                    <select class="form-select" name="bus_type">
+                                    <select class="form-select" name="bus_type" required>
                                         <option>Select</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
+                                        @foreach($bus_type as $row)
+                                        <option value="{{$row->id}}">{{$row->type_en}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> MODEL</label>
-                                    <select class="form-select" name="bus_model">
-                                        <option>Select</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label><span class="custom-val-color">*</span> TYPE</label>
-                                    <select class="form-select" name="bus_model">
-                                        <option>Select Model</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
+                                    <select class="form-select" name="bus_model" required>
+                                        <option>Select model</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> SELECT MODEL YEAR</label>
-                                    <select class="form-select" name="bus_year">
+                                    <select class="form-select" name="model_year" required>
                                         <option>Select Model Year</option>
-                                        <option>1990</option>
-                                        <option>2000</option>
+                                        @foreach($model_year as $row)
+                                        <option value="{{$row}}">{{$row}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -78,7 +71,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="ownership"
-                                                    id="owned" checked>
+                                                    id="owned">
                                                 <label class="form-check-label" for="owned">
                                                     Owned
                                                 </label>
@@ -101,7 +94,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_1" checked>
+                                                    id="status_1">
                                                 <label class="form-check-label" for="status_1">
                                                     Active
                                                 </label>
@@ -147,11 +140,9 @@
     <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/admin/bus/index.js') }}"></script>
     <script>
-        $(document).ready(function(){
-            $(".reset-btn").click(function(){
-                $("#custom-form").trigger("reset");
-            });
-        });
+        store = "{{route('admin.bus.store')}}";
+        list_url = "{{route('admin.bus.index')}}";
     </script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.master-without-nav')
+@extends('admin.layouts.master-without-nav')
 
 @section('title')
     @lang('translation.Login')
@@ -10,7 +10,7 @@
     @endsection
 
     @section('content')
-        <div class="account-pages my-5 pt-sm-5">
+        <div class="account-pages">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
