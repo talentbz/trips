@@ -17,27 +17,27 @@
                             <div class="col-md-7">
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> BUS NO</label>
-                                    <input type="text" class="form-control" name="bus_no" required>
+                                    <input type="text" class="form-control" name="bus_no" value="{{$bus->bus_no}}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> BUS SIZE</label>
                                     <select class="form-select" name="bus_size" required>
                                         <option value="">Select bus size</option>
                                         @foreach($bus_size as $row)
-                                        <option value="{{$row->id}}">{{$row->size}}</option>
+                                        <option value="{{$row->id}}" {{$bus->bus_size_id == $row->id ? 'selected' :''}}>{{$row->size}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> LICENSE NUMBER</label>
-                                    <input type="text" class="form-control" name="license_number" required>
+                                    <input type="text" class="form-control" name="license_number" value="{{$bus->license_no}}"  required>
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> LICENSE EXPIRY DATE</label>
                                     <div class="input-group" id="datepicker1">
                                         <input type="text" class="form-control" placeholder="yyyy-mm-dd"
                                             data-date-format="yyyy-mm-dd" data-date-container='#datepicker1'
-                                            data-provide="datepicker" name="start_date" required>
+                                            data-provide="datepicker" name="start_date" value="{{$bus->license_expiry_date}}" required>
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                     <select class="form-select" name="bus_type" required>
                                         <option value="">Select</option>
                                         @foreach($bus_type as $row)
-                                        <option value="{{$row->id}}">{{$row->type_en}}</option>
+                                        <option value="{{$row->id}}" {{$bus->bus_type_id == $row->id ? 'selected' :''}}>{{$row->type_en}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -54,6 +54,7 @@
                                     <label><span class="custom-val-color">*</span> MODEL</label>
                                     <select class="form-select" name="bus_model" required>
                                         <option value="">Select model</option>
+                                        <option value="{{$bus->bus_model_id}}" selected>{{$bus->bus_model_id}}</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -61,7 +62,7 @@
                                     <select class="form-select" name="model_year" required>
                                         <option value="">Select Model Year</option>
                                         @foreach($model_year as $row)
-                                        <option value="{{$row}}">{{$row}}</option>
+                                        <option value="{{$row}}" {{$bus->model_year == $row ? 'selected' :''}}>{{$row}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -71,7 +72,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="ownership"
-                                                    id="owned" value="1">
+                                                    id="owned" value="1" {{$bus->owner_ship == 1 ? 'checked' :''}}>
                                                 <label class="form-check-label" for="owned">
                                                     Owned
                                                 </label>
@@ -80,7 +81,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning">
                                                 <input class="form-check-input" type="radio" name="ownership"
-                                                    id="rented" value="0">
+                                                    id="rented" value="0" {{$bus->owner_ship == 0 ? 'checked' :''}}>
                                                 <label class="form-check-label" for="rented">
                                                     Rented
                                                 </label>
@@ -94,7 +95,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_1" value="1">
+                                                    id="status_1" value="1" {{$bus->status == 1 ? 'checked' :''}}>
                                                 <label class="form-check-label" for="status_1">
                                                     Active
                                                 </label>
@@ -103,7 +104,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_2" value="0">
+                                                    id="status_2" value="0" {{$bus->status == 1 ? 'checked' :''}}>
                                                 <label class="form-check-label" for="status_2">
                                                     Inactive
                                                 </label>

@@ -2,35 +2,7 @@ $(document).ready(function(){
     $(".reset-btn").click(function(){
         $("#custom-form").trigger("reset");
     });
-   
-    $(".edit").click(function(){
-        id = $(this).attr("data-id")
-        $.ajax({
-            url: window.location.href + "/" + id,
-            method: 'get',
-            success: function (res) {
-                result = res.data;
-                if(result){
-                    $("input[name='id']").val(id)
-                    $("input[name='name_en']").val(result.type_en)   
-                    $("input[name='name_ar']").val(result.type_ar)
-                    if(result.status == 1){
-                        $("input[name='status'][value='1']").prop('checked', true);
-                    } else {
-                        $("input[name='status'][value='0']").prop('checked', true);
-                    }  
-                }
-            },
-            error: function (res){
-                console.log(res)
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-    })
     $('#custom-form').submit(function(e){
-        alert(1);
         e.preventDefault();
         e.stopPropagation();
         var formData = new FormData(this);
@@ -49,6 +21,8 @@ $(document).ready(function(){
                     setInterval(function(){ 
                         location.href = list_url; 
                     }, 2000);
+                } else {
+                    toastr["warning"]("Bus No. is already exist.");
                 }
             },
             error: function (errors){

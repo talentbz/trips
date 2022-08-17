@@ -17,27 +17,43 @@
                             <thead>
                                 <tr>
                                     <th >No</th>
-                                    <th >BUS NO.</th>
-                                    <th>TYPE</th>
-                                    <th>DETAILS</th>
-                                    <th>DATE</th>                                    
-                                    <th class="text-center">COST</th>
+                                    <th >Type</th>
+                                    <th>Model</th>
+                                    <th>Bus No.</th>           
+                                    <th>Bus Size</th>           
+                                    <th>Owership</th>                                    
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($bus as $key=>$row)
                                 <tr>
-                                    <td>1</td>
-                                    <td>1312112</td>
-                                    <td>Periodical</td>
-                                    <td>Air Filter</td>
-                                    <td>25-06-2022</td>
-                                    <td>1400 JOD</td>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$row->type_en}}</td>
+                                    <td>{{$row->model_en}}</td>
+                                    <td>{{$row->bus_no}}</td>
+                                    <td>{{$row->size}}</td>
+                                    <td>
+                                        @if($row->owner_ship == 1)
+                                            <span class="badge badge-pill badge-soft-success font-size-12">Owered</span>
+                                        @else
+                                            <span class="badge badge-pill badge-soft-warning font-size-12">Rented</span>
+                                        @endif    
+                                    </td>
+                                    <td>
+                                        @if($row->status == 1)
+                                            <span class="badge badge-pill badge-soft-success font-size-12">Active</span>
+                                        @else
+                                            <span class="badge badge-pill badge-soft-warning font-size-12">Inactive</span>
+                                        @endif     
+                                    </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">VIEW</button>
-                                        <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">EDIT</button>
+                                        <a href="{{route('admin.bus.edit', ['bu' => $row->id])}}" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">Edit</button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
 

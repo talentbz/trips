@@ -19,7 +19,14 @@ class BusController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.bus.index');
+        $bus = Bus::leftJoin('bus_types', 'buses.bus_type_id', '=', 'bus_types.id')
+                  ->leftJoin('bus_models', 'buses.bus_model_id', '=', 'bus_models.id')
+                  ->leftJoin('bus_sizes', 'buses.bus_size_id', '=', 'bus_sizes.id')
+                  ->select('buses.*', 'bus_types.type_en', 'bus_models.model_en','bus_sizes.size')
+                  ->get();
+        return view('admin.pages.bus.index', [
+            "bus" => $bus,
+        ]);
     }
 
     /**
@@ -46,13 +53,29 @@ class BusController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        
+        $exist_data = Bus::where('bus_no', $request->bus_no)->get();
+        if(count($exist_data) > 0){
+            return response()->json(['result' => "exist"]);    
+        } else {
+            $bus = new Bus;
+            $bus->bus_no = $request->bus_no;
+            $bus->bus_size_id = $request->bus_size;
+            $bus->license_no = $request->license_number;
+            $bus->license_expiry_date = $request->start_date;
+            $bus->bus_type_id = $request->bus_type;
+            $bus->bus_model_id = $request->bus_model;
+            $bus->model_year = $request->model_year;
+            $bus->status = $request->status;
+            $bus->owner_ship = $request->ownership;
+            $bus->save();
+            return response()->json(['result' => "success"]);
+        }
     }
 
     /**
@@ -75,7 +98,21 @@ class BusController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bus = Bus::where('id', $id)->first();
+        $bus_size = BusSize::where('status', 1)->get();
+        $bus_type = BusType::where('status', 1)->get();
+        $bus_model = BusModel::where('status', 1)->get();
+        $model_year = [];
+        for ($i=date('Y'); $i >= 1950 ; $i--) { 
+            array_push($model_year, $i);
+        }
+        return view('admin.pages.bus.edit', [
+            'bus' => $bus,
+            'bus_type' => $bus_type,
+            'bus_model' => $bus_model,
+            'bus_size' => $bus_size,
+            'model_year' => $model_year,
+        ]);
     }
 
     /**
