@@ -142,7 +142,37 @@
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/admin/bus/index.js') }}"></script>
     <script>
-        store = "{{route('admin.bus.store')}}";
-        list_url = "{{route('admin.bus.index')}}";
+        $(document).ready(function(){
+            store = "{{route('admin.bus.store')}}";
+            list_url = "{{route('admin.bus.index')}}";
+            $("select[name='bus_type']").on("change", function (e) { 
+                var select_val = $(e.currentTarget).val();
+                show_url = "{{route('admin.bus.show', ['bu' => 1])}}";
+                alert(show_url);
+                $.ajax({
+                    url: show_url
+                    method: 'get',
+                    success: function (res) {
+                        // result = res.data;
+                        // if(result){
+                        //     $("input[name='id']").val(id)
+                        //     $("input[name='name_en']").val(result.type_en)   
+                        //     $("input[name='name_ar']").val(result.type_ar)
+                        //     if(result.status == 1){
+                        //         $("input[name='status'][value='1']").prop('checked', true);
+                        //     } else {
+                        //         $("input[name='status'][value='0']").prop('checked', true);
+                        //     }  
+                        // }
+                    },
+                    error: function (res){
+                        console.log(res)
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                })
+            })
+        });
     </script>
 @endsection

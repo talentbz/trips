@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 use App\Models\Bus;
 use App\Models\BusMaintenanceType;
 use App\Models\BusMaintenance;
@@ -97,7 +98,6 @@ class MaintenanceController extends Controller
     public function update(Request $request, $id)
     {
         // update
-        dd($request->all());
         $content = [
             'bus_no' => $request->bus_no,
             'maintanence_type_id' => $request->maintenace_type,
@@ -105,14 +105,7 @@ class MaintenanceController extends Controller
             'maintanence_date' => $request->date,
             'cost' => $request->cost,
         ];
-        dd($content);
         $bus_maintenace = BusMaintenance::where('id', $id)->update($content);  
-        // $bus_maintenace->bus_no = $request->bus_no;
-        // $bus_maintenace->maintanence_type_id = $request->maintenace_type;
-        // $bus_maintenace->details = $request->details;
-        // $bus_maintenace->maintanence_date = $request->date;
-        // $bus_maintenace->cost = $request->cost;
-        // $bus_maintenace->update();
         return response()->json(['result' => "success"]);
     }
 

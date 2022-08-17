@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <div class="content-warpper">
-        <form id="custom-form" class="custom-validation" enctype="multipart/form-data">
+        <form id="custom-form" class="custom-validation" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
             <div class="row">
                 <div class="col-md-5">
