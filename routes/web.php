@@ -39,6 +39,7 @@ Route::prefix('/admin')->middleware(['auth:web', 'Admin'])->group(function () {
         Route::resource('bus_model', App\Http\Controllers\Admin\Miscellaneous\BusModelController::class, ['as' => 'admin.miscellaneous']);
         Route::resource('bus_size', App\Http\Controllers\Admin\Miscellaneous\BusSizeController::class, ['as' => 'admin.miscellaneous']);
         Route::resource('bus_maintenance', App\Http\Controllers\Admin\Miscellaneous\MaintenanceController::class, ['as' => 'admin.miscellaneous']);
+        Route::resource('area', App\Http\Controllers\Admin\Miscellaneous\AreaController::class, ['as' => 'admin.miscellaneous']);
     });
 });
 

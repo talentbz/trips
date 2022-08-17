@@ -79,7 +79,7 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="{{route('admin.miscellaneous.city.index')}}"
                                 key="t-light-sidebar">Cities</a></li>
-                        <li><a href="layouts-compact-sidebar"
+                        <li><a href="{{route('admin.miscellaneous.area.index')}}"
                                 key="t-compact-sidebar">Areas</a></li>
                         <li><a href="{{route('admin.miscellaneous.bus_type.index')}}"
                                 key="t-icon-sidebar">Bus Types</a></li>
