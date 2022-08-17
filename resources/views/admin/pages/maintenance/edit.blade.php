@@ -90,7 +90,7 @@
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/admin/busMaintenance/edit.js') }}"></script>
     <script>
-        store = "{{route('admin.maintenance.update', ['maintenance' => 1])}}";
+        store = "{{route('admin.maintenance.update', ['maintenance' => $bus_maintenace->id])}}";
         list_url = "{{route('admin.maintenance.index')}}";
     </script>
 @endsection

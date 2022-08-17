@@ -98,7 +98,7 @@ class BusController extends Controller
      */
     public function edit($id)
     {
-        $bus = Bus::where('id', $id)->first();
+        $bus = Bus::leftJoin('bus_models', 'buses.bus_model_id', '=', 'bus_models.id')->where('buses.id', $id)->select('buses.*', 'bus_models.model_en')->first();
         $bus_size = BusSize::where('status', 1)->get();
         $bus_type = BusType::where('status', 1)->get();
         $bus_model = BusModel::where('status', 1)->get();
@@ -124,7 +124,19 @@ class BusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $content = [
+            'bus_no' => $request->bus_no,
+            'bus_size_id' => $request->bus_size,
+            'license_no' => $request->license_number,
+            'license_expiry_date' => $request->start_date,
+            'bus_type_id' => $request->bus_type,
+            'bus_model_id' => $request->bus_model,
+            'model_year' => $request->model_year,
+            'status' => $request->status,
+            'owner_ship' => $request->ownership,
+        ];
+        $bus = Bus::where('id', $id)->update($content);  
+        return response()->json(['result' => "success"]);
     }
 
     /**

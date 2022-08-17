@@ -20,6 +20,7 @@ class CreateAreasTable extends Migration
             $table->integer('city_id');
             $table->double('location_latitude');
             $table->double('location_longitude');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

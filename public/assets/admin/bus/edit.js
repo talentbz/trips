@@ -3,10 +3,8 @@ $(document).ready(function(){
         $("#custom-form").trigger("reset");
     });
     $('#custom-form').submit(function(e){
-        alert(1);
         e.preventDefault();
         e.stopPropagation();
-        var formData = new FormData(this);
         $.ajaxSetup({
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -14,8 +12,8 @@ $(document).ready(function(){
         });
         $.ajax({
             url: store,
-            method: 'post',
-            data: formData,
+            method: 'PUT',
+            data: $(this).serialize(),
             success: function (res) {
                 if(res.result == "success" ){
                     toastr["success"]("Success!!!");
@@ -28,7 +26,7 @@ $(document).ready(function(){
                 toastr["warning"](errors);
             },
             cache: false,
-            contentType: false,
+            // contentType: false,
             processData: false
         })
     })
