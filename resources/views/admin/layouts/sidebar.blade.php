@@ -93,9 +93,9 @@
                         </li>
                         <li><a href="{{route('admin.miscellaneous.bus_size.index')}}" key="t-preloader">Bus Sizes</a>
                         </li>
-                        <li><a href="layouts-colored-sidebar"
+                        <li><a href="{{route('admin.miscellaneous.client_type.index')}}"
                                 key="t-colored-sidebar">Client Types</a></li>
-                        <li><a href="layouts-scrollable" key="t-scrollable">Contract Types</a></li>
+                        <li><a href="{{route('admin.miscellaneous.contract_type.index')}}" key="t-scrollable">Contract Types</a></li>
                         <li><a href="{{route('admin.miscellaneous.bus_maintenance.index')}}" key="t-scrollable">Maintenace Types</a></li>
                     </ul>
                 </li>

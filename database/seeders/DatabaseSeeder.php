@@ -53,5 +53,39 @@ class DatabaseSeeder extends Seeder
             'status'               => 1,       
             'owner_ship'           => 1,                
         ]);
+        DB::table('client_types')->insert([
+            [
+                'type_name_en'         => 'Factory',
+                'type_name_ar'         => "مصنع",     
+                'status'               => 1,
+            ],
+            [
+                'type_name_en'         => 'Organization',
+                'type_name_ar'         => "منظمة",     
+                'status'               => 1,   
+            ],
+            [
+                'type_name_en'         => 'Individuals',
+                'type_name_ar'         => "فرادى",     
+                'status'               => 1,   
+            ],
+            [
+                'type_name_en'         => 'Other',
+                'type_name_ar'         => "آخر",     
+                'status'               => 1,   
+            ]
+        ]);
+        DB::table('contract_types')->insert([
+            [
+                'type_name_en'         => 'Short Term',
+                'type_name_ar'         => "المدى القصير",     
+                'status'               => 1,
+            ],
+            [
+                'type_name_en'         => 'Long Term',
+                'type_name_ar'         => "طويل الأمد",     
+                'status'               => 1,   
+            ]
+        ]);
     }
 }

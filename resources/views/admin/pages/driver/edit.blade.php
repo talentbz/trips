@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="button-group">
-                <button type="button" class="btn btn-outline-primary waves-effect waves-light">Back</button>
+                <a href="{{ URL::previous()}}" class="btn btn-outline-primary waves-effect waves-light">Back</a>
                 <button type="button" class="btn btn-outline-primary waves-effect waves-light reset-btn">Reset</button>
                 <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
             </div>
