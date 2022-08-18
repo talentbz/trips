@@ -10,6 +10,7 @@
 @section('content')
     <div class="content-warpper">
         <form class="custom-validation" action="" id="custom-form">
+            @csrf
             <div class="row">
                 <div class="col-md-7">
                     <div class="col-md-12">
@@ -22,42 +23,17 @@
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> TYPE</label>
                                     <div class="row">
+                                        @foreach($client_type as $key=>$row)
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
-                                                <input class="form-check-input" type="radio" name="bus_type"
-                                                    id="bus_type_1" checked>
-                                                <label class="form-check-label" for="bus_type_1">
-                                                    Factory
+                                                <input class="form-check-input" type="radio" name="client_type_id"
+                                                    id="client_type_{{$key}}" value="{{$row->id}}">
+                                                <label class="form-check-label" for="client_type_{{$key}}">
+                                                    {{$row->type_name_en}}
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check form-radio-warning">
-                                                <input class="form-check-input" type="radio" name="bus_type"
-                                                    id="bus_type_2">
-                                                <label class="form-check-label" for="bus_type_2">
-                                                    Organization
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check form-radio-warning">
-                                                <input class="form-check-input" type="radio" name="bus_type"
-                                                    id="bus_type_3">
-                                                <label class="form-check-label" for="bus_type_3">
-                                                    Individuals
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check form-radio-warning">
-                                                <input class="form-check-input" type="radio" name="bus_type"
-                                                    id="bus_type_4">
-                                                <label class="form-check-label" for="bus_type_4">
-                                                    Other
-                                                </label>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -69,24 +45,17 @@
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> CONTRACT TYPE</label>
                                     <div class="row">
+                                        @foreach($contract_type as $key=>$row)
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
-                                                <input class="form-check-input" type="radio" name="contract_type"
-                                                    id="contract_type_1" checked>
-                                                <label class="form-check-label" for="contract_type_1">
-                                                    Short Term
+                                                <input class="form-check-input" type="radio" name="contract_type_id"
+                                                    id="contract_type_{{$key}}" value="{{$row->id}}">
+                                                <label class="form-check-label" for="contract_type_{{$key}}">
+                                                    {{$row->type_name_en}}
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check form-radio-warning">
-                                                <input class="form-check-input" type="radio" name="contract_type"
-                                                    id="contract_type_2">
-                                                <label class="form-check-label" for="contract_type_2">
-                                                    Long Term
-                                                </label>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +63,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="mb-3">
-                            <label class="form-label">Textarea</label>
+                            <label class="form-label">ADDRESS</label>
                             <div>
                                 <textarea class="form-control" rows="3" name="address"></textarea>
                             </div>
@@ -109,7 +78,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">+ 962</span>
                                         </div>
-                                        <input data-parsley-type="number" type="text" class="form-control" name="pnone" required>
+                                        <input data-parsley-type="number" type="text" class="form-control" name="phone" required>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -121,8 +90,8 @@
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> CONTRACT START DATE</label>
                                     <div class="input-group" id="datepicker1">
-                                        <input type="text" class="form-control" placeholder="dd M, yyyy"
-                                            data-date-format="dd M, yyyy" data-date-container='#datepicker1'
+                                        <input type="text" class="form-control" placeholder="yyy-mm-dd"
+                                            data-date-format="yyy-mm-dd" data-date-container='#datepicker1'
                                             data-provide="datepicker" name="start_date" required>
 
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
@@ -157,9 +126,9 @@
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> CONTRACT END DATE</label>
                                     <div class="input-group" id="datepicker1">
-                                        <input type="text" class="form-control" placeholder="dd M, yyyy"
-                                            data-date-format="dd M, yyyy" data-date-container='#datepicker1'
-                                            data-provide="datepicker" required>
+                                        <input type="text" class="form-control" placeholder="yyy-mm-dd"
+                                            data-date-format="yyy-mm-dd" data-date-container='#datepicker1'
+                                            data-provide="datepicker" name="end_date" required>
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div><!-- input-group -->
                                 </div>
@@ -169,7 +138,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">+ 962</span>
                                         </div>
-                                        <input data-parsley-type="number" type="text" class="form-control" name="pnone_liaison" required>
+                                        <input data-parsley-type="number" type="text" class="form-control" name="phone_liaison" required>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -178,7 +147,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_1" checked>
+                                                    id="status_1" value="1">
                                                 <label class="form-check-label" for="status_1">
                                                     Active
                                                 </label>
@@ -221,11 +190,9 @@
     <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/admin/client/index.js') }}"></script>
     <script>
-        $(document).ready(function(){
-            $(".reset-btn").click(function(){
-                $("#custom-form").trigger("reset");
-            });
-        });
+         store = "{{route('admin.client.store')}}";
+         list_url = "{{route('admin.client.index')}}";
     </script>
 @endsection

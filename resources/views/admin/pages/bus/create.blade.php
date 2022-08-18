@@ -10,6 +10,7 @@
 @section('content')
     <div class="content-warpper">
         <form class="custom-validation" action="" id="custom-form">
+            @csrf
             <div class="row">
                 <div class="col-md-5">
                     <div class="col-md-12">
