@@ -30,6 +30,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('admin.driver.index')}}" class="waves-effect">
+                        <i class="bx bx-home-circle"></i>
+                        <span>Driver</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('admin.bus.index')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>Buses</span>
