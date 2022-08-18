@@ -21,6 +21,8 @@ $(document).ready(function(){
                     setInterval(function(){ 
                         location.href = list_url; 
                     }, 2000);
+                } else {
+                    toastr["error"](res.error[0]);
                 }
             },
             error: function (errors){

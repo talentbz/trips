@@ -41,32 +41,47 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        $driver = new Driver;
-        $driver->name_en = $request->name_en;
-        $driver->name_ar = $request->name_ar;
-        $driver->age = $request->age;
-        $driver->phone = $request->phone;
-        $driver->license_number = $request->license_number;
-        $driver->address = $request->address;
-        $driver->password = $request->password;
-        $driver->user_name = $request->user_name;
-        $driver->license_expiry_date = $request->license_expiry_date;
-        $driver->status = $request->status;
-        if ($request->has('file')) {
-            $path = public_path('uploads/driver/');
-            if(!file_exists($path)){
-                File::makeDirectory($path);
+        $validator = Validator::make($request->all(), [
+            'status' => 'required',
+        ]);
+        $attributeNames = array(
+            'status' => 'Status',
+        );
+        $validator->setAttributeNames($attributeNames);
+        if($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()->all()]);
+        } else {
+            if($request->id){
+                $driver = Driver::findOrFail($request->id);
+            } else {    
+                $driver = new Driver;
             }
-            $file = $request->file;
-            $fileName = $file->getClientOriginalName();
-            $imgx = Image::make($file->getRealPath());
-            $imgx->resize(150, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($path.$fileName);
-            $driver->profile_image = $fileName; 
-        };
-        $driver->save();
-        return response()->json(['result' => 'success']);
+            $driver->name_en = $request->name_en;
+            $driver->name_ar = $request->name_ar;
+            $driver->age = $request->age;
+            $driver->phone = $request->phone;
+            $driver->license_number = $request->license_number;
+            $driver->address = $request->address;
+            $driver->password = $request->password;
+            $driver->user_name = $request->user_name;
+            $driver->license_expiry_date = $request->license_expiry_date;
+            $driver->status = $request->status;
+            if ($request->has('file')) {
+                $path = public_path('uploads/driver/');
+                if(!file_exists($path)){
+                    File::makeDirectory($path);
+                }
+                $file = $request->file;
+                $fileName = time().'_'.$file->getClientOriginalName();
+                $imgx = Image::make($file->getRealPath());
+                $imgx->resize(150, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($path.$fileName);
+                $driver->profile_image = $fileName; 
+            };
+            $driver->save();
+            return response()->json(['result' => 'success']);
+        }
     }
 
     /**
@@ -103,32 +118,7 @@ class DriverController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $driver = Driver::findOrFail($id);
-        $driver->name_en = $request->name_en;
-        $driver->name_ar = $request->name_ar;
-        $driver->age = $request->age;
-        $driver->phone = $request->phone;
-        $driver->license_number = $request->license_number;
-        $driver->address = $request->address;
-        $driver->password = $request->password;
-        $driver->user_name = $request->user_name;
-        $driver->license_expiry_date = $request->license_expiry_date;
-        $driver->status = $request->status;
-        if ($request->has('file')) {
-            $path = public_path('uploads/driver/');
-            if(!file_exists($path)){
-                File::makeDirectory($path);
-            }
-            $file = $request->file;
-            $fileName = $file->getClientOriginalName();
-            $imgx = Image::make($file->getRealPath());
-            $imgx->resize(150, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($path.$fileName);
-            $driver->profile_image = $fileName; 
-        };
-        $driver->save();
-        return response()->json(['result' => 'success']);
+        
     }
 
     /**

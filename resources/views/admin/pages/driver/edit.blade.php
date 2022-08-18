@@ -10,8 +10,9 @@
 @endsection
 @section('content')
     <div class="content-warpper">
-        <form class="custom-validation" action="" id="custom-form">
+        <form class="custom-validation" method="post" id="custom-form" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="id" value="{{$driver->id}}" />
             <div class="row">
                 <div class="col-md-5">
                     <div class="col-md-12">
@@ -133,7 +134,7 @@
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/admin/driver/edit.js') }}"></script>
     <script>
-        store = "{{route('admin.driver.update', ['driver' => $driver->id])}}";
+        store = "{{route('admin.driver.store')}}";
         list_url = "{{route('admin.driver.index')}}";
     </script>
 @endsection
