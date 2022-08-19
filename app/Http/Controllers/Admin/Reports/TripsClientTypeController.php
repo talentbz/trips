@@ -14,7 +14,7 @@ class TripsClientTypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pages.reports.tripsByClientType.index'); 
     }
 
     /**

@@ -77,6 +77,7 @@
                         <span>App Supervisors</span>
                     </a>
                 </li>
+                
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
@@ -97,6 +98,47 @@
                                 key="t-colored-sidebar">Client Types</a></li>
                         <li><a href="{{route('admin.miscellaneous.contract_type.index')}}" key="t-scrollable">Contract Types</a></li>
                         <li><a href="{{route('admin.miscellaneous.bus_maintenance.index')}}" key="t-scrollable">Maintenace Types</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-home-circle"></i>
+                        <span>REPORTS</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+
+                        <li><a href="{{route('admin.reports.trips_client.index')}}"
+                                key="t-light-sidebar">TRIPS BY CLIENT</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.reports.trips_bus.index')}}"
+                                key="t-compact-sidebar">TRIPS BY BUS</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.reports.trips_type.index')}}"
+                                key="t-compact-sidebar">TRIPS BY TYPE</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.reports.trips_driver.index')}}"
+                                key="t-compact-sidebar">TRIPS BY DRIVER</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.reports.trips_bus_size.index')}}"
+                                key="t-compact-sidebar">TRIPS BY BUS SIZE</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.reports.trips_client_type.index')}}"
+                                key="t-compact-sidebar">TRIPS BY CLIENT TYPE</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.reports.trips_contract_type.index')}}"
+                                key="t-compact-sidebar">TRIPS BY CONTRACT TYPE</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.reports.trips_owership.index')}}"
+                                key="t-compact-sidebar">TRIPS BY OWNERSHIP TYPE</a>
+                        </li>                      
                     </ul>
                 </li>
             </ul>

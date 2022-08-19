@@ -14,8 +14,7 @@ class TripsOwnerShipController extends Controller
      */
     public function index()
     {
-        //
-    }
+        return view('admin.pages.reports.tripsByOwnerShip.index');     }
 
     /**
      * Show the form for creating a new resource.

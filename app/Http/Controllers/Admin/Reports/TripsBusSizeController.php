@@ -14,7 +14,7 @@ class TripsBusSizeController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pages.reports.tripsByBusSize.index');    
     }
 
     /**
