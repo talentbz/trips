@@ -148,7 +148,7 @@
             list_url = "{{route('admin.bus.index')}}";
             $("select[name='bus_type']").on("change", function (e) { 
                 var select_val = $(e.currentTarget).val();
-                show_url = "{{route('admin.bus.show', ['bu' => 1])}}";
+                show_url = "{{route('admin.bus.show', ':bu'}}";
                 show_url = show_url.replace(':bu', select_val);
                 $.ajax({
                     url: show_url,
@@ -156,6 +156,8 @@
                     success: function (res) {
                         result = res.data;
                         if(result){
+                            $("select[name='bus_model']").empty();
+                            $("select[name='bus_model']").append("<option>Select model</option>");
                             for(i=0; i<result.length; i++ ){
                                 $("select[name='bus_model']").append('<option value="'+result[i].id+'">'+result[i].model_en+'</option>');
                             }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CommonController extends Controller
 {
-    public function getBusModel($id){
-        dd($id);
+    public function setTableData(Request $request){
+        dd($request->all());
     }
 }

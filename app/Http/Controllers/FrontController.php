@@ -8,6 +8,6 @@ class FrontController extends Controller
 {
     public function index(Request $request)
     {
-        return view('frontend.index');
+        return redirect()->route('root');
     }
 }

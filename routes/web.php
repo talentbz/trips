@@ -25,7 +25,7 @@ Route::prefix('/admin')->middleware(['auth:web', 'Admin'])->group(function () {
     //Client section
     Route::resource('client', App\Http\Controllers\Admin\ClientController::class, ['as' => 'admin']);
     Route::resource('bus', App\Http\Controllers\Admin\BusController::class, ['as' => 'admin']);
-    // Route::get('bus/create/{id}', [App\Http\Controllers\Admin\CommonController::class, 'getBusModel'])->name('admin.bus.model');
+    Route::get('daily/table', [App\Http\Controllers\Admin\CommonController::class, 'setTableData'])->name('admin.daily.table');
     Route::resource('trip', App\Http\Controllers\Admin\TripController::class, ['as' => 'admin']);
     Route::resource('trip_bus', App\Http\Controllers\Admin\TripsBusController::class, ['as' => 'admin']);
     Route::resource('daily_trip', App\Http\Controllers\Admin\DailyTripController::class, ['as' => 'admin']);

@@ -15,8 +15,9 @@
                                 <div class = "col">
                                     <select class="form-select" name="client_filter">
                                         <option>All client</option>
-                                        <option>city1</option>
-                                        <option>city2</option>
+                                        @foreach($city as $key=>$row)
+                                            <option value="{{$row->id}}">{{$row->city_name_en}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class = "col">
@@ -87,45 +88,9 @@
                             </div>                             
                             <a href="{{route('admin.daily_trip.create')}}" class="btn btn-outline-warning btn-rounded waves-effect waves-light add-new"><i class="fas fa-plus"></i> ADD DAILY TRIP</a> 
                         </div>
-                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100 datatable .table-fixed">
-                            <thead>
-                                <tr>
-                                    <th >No</th>
-                                    <th >TRIP NAME</th>
-                                    <th>CLIENT</th>
-                                    <th>ORIGIN</th>
-                                    <th>DESTINATION</th>
-                                    <th>START DATE</th>
-                                    <th>END DATE</th>
-                                    <th>DRIVER</th>
-                                    <th>BUS NO.</th>
-                                    <th>BUS SIZE</th>
-                                    <th>STATUS</th>
-                                    <th>ACTION</th>                                                         
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>17:00-17:45</td>
-                                    <td>pending</td>
-                                    <td class="text-center">
-                                        <a  class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">VIEW</a>
-                                        <a href=""  class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">EDIT</a>
-                                        <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">CANCEL TRIP</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
+                        <div class="table-wrapper">
+                           @include('admin.pages.dailyTrip.table')
+                        </div>
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -136,15 +101,8 @@
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
 
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ URL::asset('/assets/admin/dailyTrip/index.js') }}"></script>
     <script>
-       $(document).ready(function(){
-            $(".reset-btn").click(function(){
-                $("#custom-form").trigger("reset");
-            });
-            // $("#custom-form").hide()
-            $(".add-new").click(function(){
-                $("#custom-form").slideUp(1000);
-            });
-        });
+        url = "{{route('admin.daily.table')}}"
     </script>
 @endsection
