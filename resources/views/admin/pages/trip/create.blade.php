@@ -74,23 +74,23 @@
                                         </div>
                                         <div class = "col-md-4">
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    checked value = "0">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="trip_frequancy_1" name = "trip_frequancy[]"
+                                                    value = "1" >
+                                                <label class="form-check-label" for="trip_frequancy_1">
                                                     Sunday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                     value = "1">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="trip_frequancy_2" name = "trip_frequancy[]"
+                                                     value = "2" >
+                                                <label class="form-check-label" for="trip_frequancy_2">
                                                     Monday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "2">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="trip_frequancy_3" name = "trip_frequancy[]"
+                                                    value = "3">
+                                                <label class="form-check-label" for="trip_frequancy_3">
                                                     Tuesday
                                                 </label>
                                             </div>
@@ -98,32 +98,32 @@
                                         </div>
                                         <div class = "col-md-4">
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "3">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="trip_frequancy_4" name = "trip_frequancy[]"
+                                                    value = "4">
+                                                <label class="form-check-label" for="trip_frequancy_4">
                                                     Wenesday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "4">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="trip_frequancy_5" name = "trip_frequancy[]"
+                                                    value = "5">
+                                                <label class="form-check-label" for="trip_frequancy_5">
                                                     Thursday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "5">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="trip_frequancy_6" name = "trip_frequancy[]"
+                                                    value = "6">
+                                                <label class="form-check-label" for="trip_frequancy_6">
                                                     Friday
                                                 </label>
                                             </div>
                                         </div>
                                         <div class = "col-md-4">
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "6">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="trip_frequancy_7" name = "trip_frequancy[]"
+                                                    value = "7">
+                                                <label class="form-check-label" for="trip_frequancy_7">
                                                     Saturday
                                                 </label>
                                             </div>                                            
@@ -180,8 +180,8 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="show_trip_admin"
-                                                    id="status_1" value = "1">
-                                                <label class="form-check-label" for="status_1">
+                                                    id="show_trip_admin_1" value = "1">
+                                                <label class="form-check-label" for="show_trip_admin_1">
                                                     Yes
                                                 </label>
                                             </div>
@@ -189,8 +189,8 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning">
                                                 <input class="form-check-input" type="radio" name="show_trip_admin"
-                                                    id="status_2" value = "0">
-                                                <label class="form-check-label" for="status_2">
+                                                    id="show_trip_admin_2" value = "0">
+                                                <label class="form-check-label" for="show_trip_admin_2">
                                                     No
                                                 </label>
                                             </div>
@@ -290,43 +290,33 @@
         $(document).ready(function(){
             store = "{{route('admin.trip.store')}}";
             list_url = "{{route('admin.trip.index')}}";
+            origin_area = $("select[name='origin_area']");
+            destination_area = $("select[name='destination_area']");
+            
+            // display area when click origin_city 
             $("select[name='origin_city']").on("change", function (e) { 
-                var select_val = $(e.currentTarget).val();
-                show_url = "{{ route('admin.miscellaneous.area.show', ['area' => 1]) }}";
-                show_url = show_url.replace(':area', select_val);
-                $.ajax({
-                    url: show_url,
-                    method: 'get',
-                    success: function (res) {
-                        result = res.data;
-                        if(result){
-                            for(i=0; i<result.length; i++ ){
-                                $("select[name='origin_area']").append('<option value="'+result[i].id+'">'+result[i].area_name_en+'</option>');
-                            }
-                        }
-                    },
-                    error: function (res){
-                        console.log(res)
-                    },
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                })
+                var id = $(e.currentTarget).val();
+                selectFunction(origin_area, id)
             })
+            // display area when click destination_area 
             $("select[name='destination_city']").on("change", function (e) { 
-                var select_val = $(e.currentTarget).val();
-                show_url = "{{ route('admin.miscellaneous.area.show', ['area' => 1]) }}";
-                show_url = show_url.replace(':area', select_val);
+                var id = $(e.currentTarget).val();
+                selectFunction(destination_area, id)
+            })
+
+            function selectFunction(select, id){
+                show_url = "{{route('admin.trip.show', ':trip')}}";
+                show_url = show_url.replace(':trip', id);
                 $.ajax({
                     url: show_url,
                     method: 'get',
                     success: function (res) {
                         result = res.data;
-                        console.log(result);
-                        
                         if(result){
+                            select.empty();
+                            select.append("<option>Select area</option>");
                             for(i=0; i<result.length; i++ ){
-                                $("select[name='destination_area']").append('<option value="'+result[i].id+'">'+result[i].area_name_en+'</option>');
+                                select.append('<option value="'+result[i].area_name_en+'">'+result[i].area_name_en+'</option>');
                             }
                         }
                     },
@@ -337,7 +327,7 @@
                     contentType: false,
                     processData: false
                 })
-            })
+            }
         });
     </script>
 @endsection

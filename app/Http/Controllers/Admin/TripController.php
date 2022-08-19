@@ -55,30 +55,55 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
-        $exist_data = Trip::where('trip_name_en', $request->name_en)->get();
-        if(count($exist_data) > 0){
-            return response()->json(['result' => "exist"]);    
-        } else {
-            $trip = new Trip;
-            $trip->trip_name_en = $request->name_en;
-            $trip->trip_name_ar = $request->name_ar;
-            $trip->client_id = $request->client;
-            $trip->trip_type = $request->trip_type;
-            $trip->details = $request->details;
-            $trip->trip_frequancy = $request->trip_frequancy;
-            $trip->first_trip_date = $request->first_trip_date;
-            $trip->last_trip_date = $request->last_trip_date;
-            $trip->origin_city = $request->origin_city;
-            $trip->origin_area = $request->origin_area;
-            $trip->destination_city = $request->destination_city;
-            $trip->destination_area = $request->destination_area;
-            $trip->departure_time = $request->departure_time;
-            $trip->arrival_time = $request->arrival_time;
-            $trip->admin_show = $request->show_trip_admin;
-            $trip->status = $request->status;
-            $trip->save();
-            return response()->json(['result' => "success"]);
+         /**
+         * check the status validate.
+         */ 
+        $validator = Validator::make($request->all(), [
+            'status' => 'required',
+            'trip_type' => 'required',
+            'show_trip_admin' => 'required',
+        ]);
+        $attributeNames = array(
+            'status' => 'Status',
+            'trip_type' => 'Trip Type',
+            'show_trip_admin' => 'Show Trip Admin',
+        );
+        $validator->setAttributeNames($attributeNames);
+        if($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()->all()]);
         }
+        /**
+         * if id is not exist, then requst data will create.
+         * if id is exist, then request data will update
+         */ 
+        if($request->id){
+            $trip = Trip::findOrFail($request->id);
+        } else {    
+            $exist_data = Trip::where('trip_name_en', $request->name_en)->get();
+            if(count($exist_data) > 0){
+                return response()->json(['result' => "exist"]);    
+            } 
+            $trip = new Trip;
+        }
+
+        $trip->trip_name_en = $request->name_en;
+        $trip->trip_name_ar = $request->name_ar;
+        $trip->client_id = $request->client;
+        $trip->trip_type = $request->trip_type;
+        $trip->details = $request->details;
+        $trip->trip_frequancy = $request->trip_frequancy;
+        $trip->first_trip_date = $request->first_trip_date;
+        $trip->last_trip_date = $request->last_trip_date;
+        $trip->origin_city = $request->origin_city;
+        $trip->origin_area = $request->origin_area;
+        $trip->destination_city = $request->destination_city;
+        $trip->destination_area = $request->destination_area;
+        $trip->departure_time = $request->departure_time;
+        $trip->arrival_time = $request->arrival_time;
+        $trip->admin_show = $request->show_trip_admin;
+        $trip->status = $request->status;
+        $trip->save();
+        return response()->json(['result' => "success"]);
     }
 
     /**
@@ -89,7 +114,7 @@ class TripController extends Controller
      */
     public function show($id)
     {
-        $data = Trip::where('id', $id)->where('status', 1)->get();
+        $data = Area::where('city_id', $id)->where('status', 1)->get();
         return response()->json(['data' => $data]);
     }
 
@@ -123,27 +148,7 @@ class TripController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $content = [
-            'trip_name_en' => $request->name_en,
-            'trip_name_ar' => $request->name_ar,
-            'client_id' => $request->client,
-            'trip_type' => $request->trip_type,
-            'details' => $request->details,
-            'trip_frequancy' => $request->trip_frequancy,
-            'first_trip_date' => $request->first_trip_date,
-            'last_trip_date' => $request->last_trip_date,
-            'origin_city' => $request->origin_city,
-            'origin_area' => $request->origin_area,
-            'destination_city' => $request->destination_city,
-            'destination_area' => $request->destination_area,
-            'departure_time' => $request->departure_time,
-            'arrival_time' => $request->arrival_time,
-            'admin_show' => $request->show_trip_admin,
-            'status' => $request->status,            
-        ];
-      
-        $trip = Trip::where('id', $id)->update($content);  
-        return response()->json(['result' => "success"]);
+        
     }
 
     /**

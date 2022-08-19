@@ -42,6 +42,17 @@ Route::prefix('/admin')->middleware(['auth:web', 'Admin'])->group(function () {
         Route::resource('bus_maintenance', App\Http\Controllers\Admin\Miscellaneous\MaintenanceController::class, ['as' => 'admin.miscellaneous']);
         Route::resource('area', App\Http\Controllers\Admin\Miscellaneous\AreaController::class, ['as' => 'admin.miscellaneous']);
     });
+
+    Route::prefix('/reports')->group(function () {
+        Route::resource('trips_client', App\Http\Controllers\Admin\Reports\TripsClientController::class, ['as' => 'admin.reports']);
+        Route::resource('trips_bus', App\Http\Controllers\Admin\Reports\TripsBusController::class, ['as' => 'admin.reports']);
+        Route::resource('trips_type', App\Http\Controllers\Admin\Reports\TripsTypeController::class, ['as' => 'admin.reports']);
+        Route::resource('trips_driver', App\Http\Controllers\Admin\Reports\TripsDriverController::class, ['as' => 'admin.reports']);
+        Route::resource('trips_bus_size', App\Http\Controllers\Admin\Reports\TripsBusSizeController::class, ['as' => 'admin.reports']);
+        Route::resource('trips_client_type', App\Http\Controllers\Admin\Reports\TripsClientTypeController::class, ['as' => 'admin.reports']);
+        Route::resource('trips_contract_type', App\Http\Controllers\Admin\Reports\TripsContractTypeController::class, ['as' => 'admin.reports']);
+        Route::resource('trips_owership', App\Http\Controllers\Admin\Reports\TripsOwnerShipController::class, ['as' => 'admin.reports']);
+    });
 });
 
 
