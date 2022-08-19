@@ -17,6 +17,7 @@
                                     <th >No</th>
                                     <th >Name</th>
                                     <th >Type</th>
+                                    <th >Contract Type</th>
                                     <th >Start Date</th>
                                     <th >End Date</th>
                                     <th class="text-center">Status</th>
@@ -24,26 +25,27 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($client as $key=>$row)
                                 <tr>
-                                    <td>1</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>2011/04/25</td>
-                                    <td>2011/04/25</td>
-                                    <td>
-                                        <div class="table-select-box">
-                                            <select class="form-select form-control-sm">
-                                                <option>Select</option>
-                                                <option>Large select</option>
-                                                <option>Small select</option>
-                                            </select>
-                                        </div>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$row->name_en}}</td>
+                                    <td>{{$row->client_type_name_en}}</td>
+                                    <td>{{$row->contract_type_name_en}}</td>
+                                    <td>{{$row->contract_start_date}}</td>
+                                    <td>{{$row->contract_end_date}}</td>
+                                    <td class="text-center">
+                                        @if($row->status == 1)
+                                            <span class="badge badge-pill badge-soft-success font-size-12">Active</span>
+                                        @else
+                                            <span class="badge badge-pill badge-soft-warning font-size-12">Inactive</span>
+                                        @endif  
                                     </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">View</button>
-                                        <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">Edit</button>
+                                        <a href="{{route('admin.client.edit', ['client' => $row->id])}}" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">Edit</button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
 

@@ -11,6 +11,7 @@
     <div class="content-warpper">
         <form class="custom-validation" action="" id="custom-form">
             @csrf
+            <input type="hidden" name="id" value="{{$client->id}}">
             <div class="row">
                 <div class="col-md-7">
                     <div class="col-md-12">
@@ -18,7 +19,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> NAME (EN)</label>
-                                    <input type="text" class="form-control" name="name_en" required>
+                                    <input type="text" class="form-control" name="name_en" value="{{$client->name_en}}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> TYPE</label>
@@ -27,7 +28,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="client_type_id"
-                                                    id="client_type_{{$key}}" value="{{$row->id}}">
+                                                    id="client_type_{{$key}}" value="{{$row->id}}" {{$client->client_type_id == $row->id ? "checked" : ""}}>
                                                 <label class="form-check-label" for="client_type_{{$key}}">
                                                     {{$row->type_name_en}}
                                                 </label>
@@ -40,7 +41,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> NAME (AR)</label>
-                                    <input type="text" class="form-control" name="name_ar" required>
+                                    <input type="text" class="form-control" name="name_ar" value="{{$client->name_ar}}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> CONTRACT TYPE</label>
@@ -49,7 +50,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="contract_type_id"
-                                                    id="contract_type_{{$key}}" value="{{$row->id}}">
+                                                    id="contract_type_{{$key}}" value="{{$row->id}}" {{$client->contract_type_id == $row->id ? "checked" : ""}}>
                                                 <label class="form-check-label" for="contract_type_{{$key}}">
                                                     {{$row->type_name_en}}
                                                 </label>
@@ -65,7 +66,7 @@
                         <div class="mb-3">
                             <label class="form-label">ADDRESS</label>
                             <div>
-                                <textarea class="form-control" rows="3" name="address"></textarea>
+                                <textarea class="form-control" rows="3" name="address">{{$client->address}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -78,13 +79,13 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">+ 962</span>
                                         </div>
-                                        <input data-parsley-type="number" type="text" class="form-control" name="phone" required>
+                                        <input data-parsley-type="number" type="text" class="form-control" name="phone" value="{{$client->phone_number}}" required>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">WEBSITE</label>
                                     <div>
-                                        <input type="text" class="form-control" name="website"/>
+                                        <input type="text" class="form-control" name="website" value="{{$client->website}}"/>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -92,7 +93,7 @@
                                     <div class="input-group" id="datepicker1">
                                         <input type="text" class="form-control" placeholder="yyyy-mm-dd"
                                             data-date-format="yyyy-mm-dd" data-date-container='#datepicker1'
-                                            data-provide="datepicker" name="start_date" required>
+                                            data-provide="datepicker" name="start_date" value="{{$client->contract_start_date}}" required>
 
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div><!-- input-group -->
@@ -100,13 +101,13 @@
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> LIAISON NAME</label>
                                     <div>
-                                        <input type="text" class="form-control" name="name_liaison" required/>
+                                        <input type="text" class="form-control" name="name_liaison" value="{{$client->liaison_name}}" required/>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> RECORDE NUMBER</label>
                                     <div>
-                                        <input type="text" class="form-control" name="recorde_number" required/>
+                                        <input type="text" class="form-control" name="recorde_number" value="{{$client->record_number}}" required/>
                                     </div>
                                 </div>
                             </div>
@@ -114,13 +115,13 @@
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> EMail</label>
                                     <div>
-                                        <input type="email" class="form-control" required parsley-type="email" name="email"/>
+                                        <input type="email" class="form-control" required parsley-type="email" name="email" value="{{$client->email}}"/>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">FAX</label>
                                     <div>
-                                        <input type="text" class="form-control" name="fax"/>
+                                        <input type="text" class="form-control" name="fax" value="{{$client->fax}}"/>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -128,7 +129,7 @@
                                     <div class="input-group" id="datepicker1">
                                         <input type="text" class="form-control" placeholder="yyyy-mm-dd"
                                             data-date-format="yyyy-mm-dd" data-date-container='#datepicker1'
-                                            data-provide="datepicker" name="end_date" required>
+                                            data-provide="datepicker" name="end_date" value="{{$client->contract_end_date}}" required>
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div><!-- input-group -->
                                 </div>
@@ -138,7 +139,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">+ 962</span>
                                         </div>
-                                        <input data-parsley-type="number" type="text" class="form-control" name="phone_liaison" required>
+                                        <input data-parsley-type="number" type="text" class="form-control" name="phone_liaison" value="{{$client->liaison_phone}}" required>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -147,7 +148,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_1" value="1">
+                                                    id="status_1" value="1" {{$client->status == 1 ? "checked" : ""}}>
                                                 <label class="form-check-label" for="status_1">
                                                     Active
                                                 </label>
@@ -156,7 +157,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_2" value="0">
+                                                    id="status_2" value="0" {{$client->status == 0 ? "checked" : ""}}>
                                                 <label class="form-check-label" for="status_2">
                                                     Inactive
                                                 </label>

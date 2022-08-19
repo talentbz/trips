@@ -24,7 +24,7 @@ $(document).ready(function(){
                 }
                 if(res.error){
                     for(i=0; i<res.error.length; i++){
-                        toastr["warning"](res.error[i]);
+                        toastr["error"](res.error[i]);
                     }
                 }
             },

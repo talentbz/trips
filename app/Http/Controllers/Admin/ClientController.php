@@ -18,7 +18,13 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.client.index');
+        $client = Client::leftJoin('client_types', 'clients.client_type_id', '=', 'client_types.id')
+                        ->leftJoin('contract_types', 'clients.contract_type_id', '=', 'contract_types.id')
+                        ->select('clients.*', 'client_types.type_name_en as client_type_name_en', 'contract_types.type_name_en as contract_type_name_en')
+                        ->get();
+        return view('admin.pages.client.index', [
+            'client' => $client,
+        ]);
     }
 
     /**
@@ -49,13 +55,13 @@ class ClientController extends Controller
          */ 
         $validator = Validator::make($request->all(), [
             'status' => 'required',
-            'client_type' => 'required',
-            'contract_type' => 'required',
+            'contract_type_id' => 'required',
+            'contract_type_id' => 'required',
         ]);
         $attributeNames = array(
             'status' => 'Status',
-            'client_type' => 'Client Type',
-            'contract_type' => 'Contract Type',
+            'client_type_id' => 'Client Type',
+            'contract_type_id' => 'Contract Type',
         );
         $validator->setAttributeNames($attributeNames);
         if($validator->fails()) {
@@ -109,7 +115,14 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client_type = ClientType::where('status', 1)->get();
+        $contract_type = ContractType::where('status', 1)->get();
+        $client = Client::findOrFail($id);
+        return view('admin.pages.client.edit', [
+            'client_type' => $client_type,
+            'contract_type' => $contract_type,
+            'client' => $client,
+        ]);
     }
 
     /**

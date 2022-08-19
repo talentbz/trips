@@ -22,8 +22,8 @@ class CreateClientsTable extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->string('email');
-            $table->date('website');
-            $table->date('fax');
+            $table->string('website');
+            $table->string('fax');
             $table->date('contract_start_date');
             $table->date('contract_end_date');
             $table->string('liaison_name');
