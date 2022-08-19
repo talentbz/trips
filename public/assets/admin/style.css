@@ -70,8 +70,50 @@
     height: 100%;
     position: fixed;
 }
-.account-pages .login-bg {
-    
+.account-pages .login-form {
+    position: relative;
+    width: 430px;
+    margin: 80px auto;
+}
+.account-pages .login-form img{
+    margin-top: 30px;
+}
+.login-wrapper {
+    position: absolute;
+    bottom: 13%;
+    width: 74%;
+    left: 13%;
+}
+.login-wrapper input {
+    background: transparent !important;
+    border-radius: 20px !important;
+    height: 43px;
+    color: #fff !important;
+    padding: 0 25px;
+}
+.login-wrapper label {
+    color: #fff;
+}
+.login-wrapper button {
+    width: 64%;
+    height: 43px;
+    background: #fff;
+    color: #0F589E;
+    font-size: 17px;
+    margin: auto;
+}
+.login-button {
+    text-align: center;
+}
+.login-wrapper button:hover {
+    background: #eee;
+} 
+.forgot-password {
+    color: #fff;
+    font-size: 15px;
+}
+.forgot-password:hover {
+    color: #ccc;
 }
 @media only screen and (max-width: 768px) {
     #page-topbar{
