@@ -24,10 +24,11 @@ class CreateTripsTable extends Migration
             $table->date('first_trip_date');
             $table->date('last_trip_date');
             $table->string('origin_city');
+            $table->string('origin_area');
             $table->string('destination_city');
             $table->string('destination_area');
-            $table->date('departure_time');
-            $table->date('arrival_time');
+            $table->string('departure_time');
+            $table->string('arrival_time');
             $table->boolean('admin_show');
             $table->boolean('status');
             $table->timestamps();

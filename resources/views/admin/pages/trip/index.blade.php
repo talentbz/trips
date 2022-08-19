@@ -29,20 +29,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($trip as $key=>$row)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Morning Trip</td>
-                                    <td>Biabars Foam</td>
-                                    <td>University Street</td>
-                                    <td>Silwad Street</td>
-                                    <td></td>
-                                    <td>17:00-17:45</td>
-                                    <td>active</td>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$row->trip_name_en}}</td>
+                                    <td>{{$row->client_name}}</td>
+                                    <td>{{$row->origin_area_name_en}}</td>
+                                    <td>{{$row->destination_area_name_en}}</td>
+                                    <td>{{$row->first_trip_date}} - {{$row->last_trip_date}}</td>
+                                    <td>{{$row->departure_time}}-{{$row->arrival_time}}</td>
+                                    <td>
+                                        @if($row->status == 1)
+                                            <span class="badge badge-pill badge-soft-success font-size-12">Active</span>
+                                        @else
+                                            <span class="badge badge-pill badge-soft-warning font-size-12">Inactive</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">VIEW</button>
-                                        <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">EDIT</button>
+                                        <a href="{{route('admin.trip.edit',['trip' => $row->id])}}" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">Edit</button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
 

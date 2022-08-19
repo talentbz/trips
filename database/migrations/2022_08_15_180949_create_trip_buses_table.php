@@ -20,6 +20,7 @@ class CreateTripBusesTable extends Migration
             $table->string('bus_no');
             $table->string('driver_name');
             $table->timestamps();
+            $table->boolean('status');
         });
     }
 

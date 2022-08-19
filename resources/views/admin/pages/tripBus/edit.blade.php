@@ -21,7 +21,7 @@
                                     <select class="form-select" name="trip_name">
                                         <option>Select Trip Name</option>
                                         @foreach($trip as $row)
-                                        <option value="{{$row->id}}">{{$row->trip_name_en}}</option>
+                                        <option value="{{$row->id}}" {{$trip_bus->trip_name == $row->id ? 'selected' :''}}>{{$row->trip_name_en}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -30,7 +30,7 @@
                                     <select class="form-select" name="bus_size">
                                         <option>Select Bus Size</option>
                                         @foreach($bus_size as $row)
-                                        <option value="{{$row->id}}">{{$row->size}}</option>
+                                        <option value="{{$row->id}}" {{$trip_bus->bus_size == $row->id ? 'selected' :''}}>{{$row->size}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -39,7 +39,7 @@
                                     <select class="form-select" name="bus_no">
                                         <option>Select Bus No</option>
                                         @foreach($bus_no as $row)
-                                        <option value="{{$row->id}}">{{$row->bus_no}}</option>
+                                        <option value="{{$row->id}}" {{$trip_bus->bus_no == $row->id ? 'selected' :''}}>{{$row->bus_no}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -48,7 +48,7 @@
                                     <select class="form-select" name="driver_name">
                                         <option>Select Driver Name</option>
                                         @foreach($driver as $row)
-                                        <option value="{{$row->id}}">{{$row->name_en}}</option>
+                                        <option value="{{$row->id}}" {{$trip_bus->driver_name == $row->id ? 'selected' :''}}>{{$row->name_en}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -59,7 +59,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_1" value = "1">
+                                                    id="status_1" value = "1" {{$trip_bus->status == 1 ? 'checked' :''}}>
                                                 <label class="form-check-label" for="status_1">
                                                     Active
                                                 </label>
@@ -68,7 +68,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_2" value = "0">
+                                                    id="status_2" value = "0" {{$trip_bus->status == 0 ? 'checked' :''}}>
                                                 <label class="form-check-label" for="status_2">
                                                     Inactive
                                                 </label>
@@ -105,10 +105,10 @@
 <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
 <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/admin/tripBus/index.js') }}"></script>
+<script src="{{ URL::asset('/assets/admin/tripBus/edit.js') }}"></script>
 <script>
     $(document).ready(function(){
-        store = "{{route('admin.trip_bus.store')}}";
+        store = "{{route('admin.trip_bus.update', ['trip_bu' => $trip_bus->id])}}";
         list_url = "{{route('admin.trip_bus.index')}}";
         
     });
