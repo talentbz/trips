@@ -25,62 +25,62 @@
                 </li>
                 <li>
                     <a href="{{route('admin.client.index')}}" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bxs-user-detail"></i>
                         <span>Clients</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin.driver.index')}}" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
-                        <span>Driver</span>
+                        <i class="bx bxs-ship"></i>
+                        <span>Drivers</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin.bus.index')}}" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bxs-bus"></i>
                         <span>Buses</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin.trip.index')}}" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bx-aperture"></i>
                         <span>Trips</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin.trip_bus.index')}}" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bx-briefcase-alt-2"></i>
                         <span>Trips Buses</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin.daily_trip.index')}}" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bxs-eraser"></i>
                         <span>Daily Trips</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin.maintenance.index')}}" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bxs-wrench"></i>
                         <span>Maintenace Records</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bx-user-circle"></i>
                         <span>Users</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bx-list-ul"></i>
                         <span>App Supervisors</span>
                     </a>
                 </li>
                 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
+                        <i class="bx bx-tone"></i>
                         <span key="t-layouts">Miscellaneous</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
@@ -103,7 +103,7 @@
                 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="bx bx bx-file"></i>
                         <span>REPORTS</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
