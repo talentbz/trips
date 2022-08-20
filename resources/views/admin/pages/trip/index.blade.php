@@ -34,8 +34,8 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$row->trip_name_en}}</td>
                                     <td>{{$row->client_name}}</td>
-                                    <td>{{$row->origin_area_name_en}}</td>
-                                    <td>{{$row->destination_area_name_en}}</td>
+                                    <td>{{$row->origin_city_name_en}} {{$row->origin_area_name_en}}</td>
+                                    <td>{{$row->destination_city_name_en}} {{$row->destination_area_name_en}}</td>
                                     <td>{{$row->first_trip_date}} - {{$row->last_trip_date}}</td>
                                     <td>{{$row->departure_time}}-{{$row->arrival_time}}</td>
                                     <td>

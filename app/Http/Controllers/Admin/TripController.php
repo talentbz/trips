@@ -19,12 +19,12 @@ class TripController extends Controller
      */
     public function index()
     {
-        $trip = Trip::leftJoin('clients', 'trips.client_id', '=', 'clients.id')
-                  ->leftJoin('cities as c1', 'trips.origin_city', '=', 'c1.id')
-                  ->leftJoin('cities as c2', 'trips.destination_city', '=', 'c2.id')
-                  ->leftJoin('areas as a1','trips.origin_area', '=', 'a1.id')
-                  ->leftJoin('areas as a2','trips.destination_area', '=', 'a1.id')
-                  ->select('trips.*', 'clients.name_en as client_name', 'c1.city_name_en as origin_city_name','c2.city_name_en as destination_city_name_en','a1.area_name_en as origin_area_name_en' , 'a2.area_name_en as destination_area_name_en')
+        $trip = Trip::leftJoin('clients as c', 'c.id' , '=','trips.client_id')
+                  ->leftJoin('cities as c1',  'c1.id','=','trips.origin_city')
+                  ->leftJoin('cities as c2', 'c2.id','=','trips.destination_city')
+                  ->leftJoin('areas as a1','a1.id','=','trips.origin_area')
+                  ->leftJoin('areas as a2','a2.id','=','trips.destination_area')
+                  ->select('trips.*', 'c.name_en as client_name', 'c1.city_name_en as origin_city_name_en','c2.city_name_en as destination_city_name_en','a1.area_name_en as origin_area_name_en' , 'a2.area_name_en as destination_area_name_en')
                   ->get();
         return view('admin.pages.trip.index', [
             "trip" => $trip,
