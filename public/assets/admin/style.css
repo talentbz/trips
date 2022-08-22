@@ -157,6 +157,16 @@
 #sidebar-menu ul li a {
     text-transform: uppercase;
 }
+.custom-chart{
+    display: flow-root;
+}
+.custom-chart h4{
+    float: left;
+}
+.chart-dropdown {
+    width: 150px;
+    float: right;
+}
 /* end dashboard */
 @media only screen and (max-width: 768px) {
     #page-topbar{

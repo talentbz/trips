@@ -113,7 +113,17 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Daily Trips</h4>
+                        <div class="custom-chart">
+                            <h4 class="card-title mb-4">Daily Trips</h4>
+                            <div class="chart-dropdown">
+                                <select class="form-select" id="chart-select">
+                                    <option selected="">Last 7 Days</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div id="line_chart_dashed" class="apex-charts" dir="ltr"></div>
                     </div>

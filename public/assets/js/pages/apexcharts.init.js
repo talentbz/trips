@@ -140,13 +140,13 @@ var options = {
     y: [{
       title: {
         formatter: function formatter(val) {
-          return val + " (mins)";
+          return val ;
         }
       }
     }, {
       title: {
         formatter: function formatter(val) {
-          return val + " per session";
+          return val ;
         }
       }
     }, {
@@ -227,10 +227,10 @@ var options = {
     colors: ['transparent']
   },
   series: [{
-    name: 'Canceled',
+    name: 'Completed', 
     data: [46, 57, 59, 54, 62]
   }, {
-    name: 'Completed',
+    name: 'Canceled',
     data: [74, 83, 102, 97, 86]
   }, {
     name: 'Total',
