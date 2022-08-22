@@ -154,6 +154,9 @@
 .custom-language a{
     text-align: right;
 }
+#sidebar-menu ul li a {
+    text-transform: uppercase;
+}
 /* end dashboard */
 @media only screen and (max-width: 768px) {
     #page-topbar{

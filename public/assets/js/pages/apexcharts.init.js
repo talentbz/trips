@@ -214,7 +214,7 @@ var options = {
   plotOptions: {
     bar: {
       horizontal: false,
-      columnWidth: '45%',
+      columnWidth: '25%',
       endingShape: 'rounded'
     }
   },
@@ -227,26 +227,18 @@ var options = {
     colors: ['transparent']
   },
   series: [{
-    name: 'Net Profit',
-    data: [46, 57, 59, 54, 62, 58, 64, 60, 66]
+    name: 'Canceled',
+    data: [46, 57, 59, 54, 62]
   }, {
-    name: 'Revenue',
-    data: [74, 83, 102, 97, 86, 106, 93, 114, 94]
+    name: 'Completed',
+    data: [74, 83, 102, 97, 86]
   }, {
-    name: 'Free Cash Flow',
-    data: [37, 42, 38, 26, 47, 50, 54, 55, 43]
+    name: 'Total',
+    data: [37, 42, 38, 26, 47]
   }],
   colors: ['#0055A6', '#77C1F2', '#FBB03B'],
   xaxis: {
-    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct']
-  },
-  yaxis: {
-    title: {
-      text: '$ (thousands)',
-      style: {
-        fontWeight: '500'
-      }
-    }
+    categories: ['2018', '2019', '2020', '2021', '2022']
   },
   grid: {
     borderColor: '#f1f1f1'
