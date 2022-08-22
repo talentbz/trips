@@ -115,6 +115,46 @@
 .forgot-password:hover {
     color: #ccc;
 }
+.login-title {
+    color: #fff;
+    text-align: center;
+}
+.forgot-desc {
+    text-align: center;
+    color: #fff;
+}
+/* dashboard page */
+.card-bg {
+    border-radius: 10px;
+}
+.card-bg .card-body {
+    background: #fff;
+    border-radius: 7px;
+    margin-top: 11px;
+}
+.card-bg-color-1 {
+    background: #F48222;
+}
+.card-bg-color-2 {
+    background: #0055A6;
+}
+.card-bg-color-3 {
+    background: #77C1F2;
+}
+.card-bg-color-4 {
+    background: #FBB03B;
+}
+.card-bg-color-5 {
+    background: #FDEE21;
+}
+.custom-language {
+    min-width: 80px;
+    left: 40px !important;
+}
+.custom-language a{
+    text-align: right;
+}
+/* end dashboard */
 @media only screen and (max-width: 768px) {
     #page-topbar{
         left: 0;

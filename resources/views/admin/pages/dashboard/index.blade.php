@@ -9,17 +9,19 @@
         <div class="row">
             <div class="col">
                 <div class="card mini-stats-wid">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body">
-                                <p class="text-muted fw-medium">CLIENTS</p>
-                                <h4 class="mb-0">1,235</h4>
-                            </div>
+                    <div class="card-bg card-bg-color-1">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p class="text-muted fw-medium">CLIENTS</p>
+                                    <h4 class="mb-0">1,235</h4>
+                                </div>
 
-                            <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
-                                <span class="avatar-title">
-                                    <i class="bx bx-copy-alt font-size-24"></i>
-                                </span>
+                                <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
+                                    <span class="avatar-title">
+                                        <i class="bx bxs-user-detail font-size-24"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -27,17 +29,19 @@
             </div>
             <div class="col">
                 <div class="card mini-stats-wid">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body">
-                                <p class="text-muted fw-medium">DRIVERS</p>
-                                <h4 class="mb-0">35, 723</h4>
-                            </div>
+                    <div class="card-bg card-bg-color-2">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p class="text-muted fw-medium">DRIVERS</p>
+                                    <h4 class="mb-0">35, 723</h4>
+                                </div>
 
-                            <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
-                                <span class="avatar-title rounded-circle bg-primary">
-                                    <i class="bx bx-archive-in font-size-24"></i>
-                                </span>
+                                <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
+                                    <span class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bxs-ship font-size-24"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -45,17 +49,19 @@
             </div>
             <div class="col">
                 <div class="card mini-stats-wid">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body">
-                                <p class="text-muted fw-medium">BUSES</p>
-                                <h4 class="mb-0">$16.2</h4>
-                            </div>
+                    <div class="card-bg card-bg-color-3">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p class="text-muted fw-medium">BUSES</p>
+                                    <h4 class="mb-0">$16.2</h4>
+                                </div>
 
-                            <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
-                                <span class="avatar-title rounded-circle bg-primary">
-                                    <i class="bx bx-purchase-tag-alt font-size-24"></i>
-                                </span>
+                                <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
+                                    <span class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bxs-bus font-size-24"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -63,17 +69,19 @@
             </div>
             <div class="col">
                 <div class="card mini-stats-wid">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body">
-                                <p class="text-muted fw-medium">TRIPS</p>
-                                <h4 class="mb-0">$16.2</h4>
-                            </div>
+                    <div class="card-bg card-bg-color-4">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p class="text-muted fw-medium">TRIPS</p>
+                                    <h4 class="mb-0">$16.2</h4>
+                                </div>
 
-                            <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
-                                <span class="avatar-title rounded-circle bg-primary">
-                                    <i class="bx bx-purchase-tag-alt font-size-24"></i>
-                                </span>
+                                <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
+                                    <span class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bx-briefcase-alt-2 font-size-24"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,17 +89,19 @@
             </div>
             <div class="col">
                 <div class="card mini-stats-wid">
-                    <div class="card-body">
-                        <div class="media">
-                            <div class="media-body">
-                                <p class="text-muted fw-medium">DAILY TRIPS</p>
-                                <h4 class="mb-0">$16.2</h4>
-                            </div>
+                    <div class="card-bg card-bg-color-5">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p class="text-muted fw-medium">DAILY TRIPS</p>
+                                    <h4 class="mb-0">$16.2</h4>
+                                </div>
 
-                            <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
-                                <span class="avatar-title rounded-circle bg-primary">
-                                    <i class="bx bx-purchase-tag-alt font-size-24"></i>
-                                </span>
+                                <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
+                                    <span class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bxs-eraser font-size-24"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

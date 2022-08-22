@@ -16,6 +16,9 @@
                 <div class="login-wrapper">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         @csrf
+                        <div class="mb-5">
+                            <h3 class="login-title">LOGIN</h3>
+                        </div>
                         <div class="mb-3">
                             <label for="username" class="form-label">Email</label>
                             <input name="email" type="email"
@@ -46,8 +49,7 @@
                         </div>
 
                         <div class="mt-5 d-grid login-button">
-                            <button class="btn btn-rounded waves-effect waves-light" type="submit">Log
-                                In</button>
+                            <button class="btn btn-rounded waves-effect waves-light" type="submit">LOGIN</button>
                         </div>
                     </form>
                 </div>

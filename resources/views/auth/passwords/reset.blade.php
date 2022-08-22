@@ -12,8 +12,8 @@
     @section('content')
     <div class="account-pages">
         <div class="login-form">
-            <img src="{{ URL::asset ('/images/admin/login.png') }}" alt="">
-            <div class="login-wrapper">
+            <img src="{{ URL::asset ('/images/admin/forgot-password.png') }}" alt="">
+            <div class="login-wrapper forgot-password">
                 <form class="form-horizontal" method="POST" action="{{ route('password.update') }}">
                     @csrf
                     <input type="hidden" name="token" value="{{ $token }}">
@@ -49,7 +49,7 @@
 
                     <div class="text-end">
                         <button class="btn btn-primary w-md waves-effect waves-light"
-                            type="submit">Reset</button>
+                            type="submit">SEND</button>
                     </div>
 
                 </form>

@@ -108,7 +108,7 @@ var options = {
       show: false
     }
   },
-  colors: ['#556ee6', '#f46a6a', '#34c38f'],
+  colors: ['#0055A6', '#77C1F2', '#FBB03B'],
   dataLabels: {
     enabled: false
   },
@@ -118,22 +118,15 @@ var options = {
     dashArray: [0, 8, 5]
   },
   series: [{
-    name: "Session Duration",
-    data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+    name: "COMPLETED",
+    data: [45, 52, 38, 24, 33, 26, 21]
   }, {
-    name: "Page Views",
-    data: [36, 42, 60, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+    name: "CANCELED",
+    data: [36, 42, 60, 42, 13, 18, 29]
   }, {
-    name: 'Total Visits',
-    data: [89, 56, 74, 98, 72, 38, 64, 46, 84, 58, 46, 49]
+    name: 'Total',
+    data: [89, 56, 74, 98, 72, 38, 64]
   }],
-  title: {
-    text: 'Page Statistics',
-    align: 'left',
-    style: {
-      fontWeight: '500'
-    }
-  },
   markers: {
     size: 0,
     hover: {
@@ -141,7 +134,7 @@ var options = {
     }
   },
   xaxis: {
-    categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan', '10 Jan', '11 Jan', '12 Jan']
+    categories: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
   },
   tooltip: {
     y: [{
@@ -166,7 +159,7 @@ var options = {
   },
   grid: {
     borderColor: '#f1f1f1'
-  }
+  },
 };
 var chart = new ApexCharts(document.querySelector("#line_chart_dashed"), options);
 chart.render(); //   spline_area
@@ -243,7 +236,7 @@ var options = {
     name: 'Free Cash Flow',
     data: [37, 42, 38, 26, 47, 50, 54, 55, 43]
   }],
-  colors: ['#34c38f', '#556ee6', '#f46a6a'],
+  colors: ['#0055A6', '#77C1F2', '#FBB03B'],
   xaxis: {
     categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct']
   },
