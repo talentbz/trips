@@ -20,6 +20,8 @@ class CreateSuperVisorsTable extends Migration
             $table->string('phone');
             $table->string('password');
             $table->string('user_name');
+            $table->date('birthday');
+            $table->date('address')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

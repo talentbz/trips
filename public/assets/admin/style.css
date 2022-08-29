@@ -1,10 +1,11 @@
-/* @font-face {
-    font-family: "CustomFont";
-    src: url("../fonts/custom/CustomFont.eot");
-    src: url("CustomFont.woff") format("woff"),
-    url("CustomFont.otf") format("opentype"),
-} */
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url("../fonts/custom/Montserrat-Regular.otf") format("opentype");
+}
 
+body {
+    font-family: Montserrat-Regular;
+}
 .content-warpper {
     width: 90%;
     margin: auto;
