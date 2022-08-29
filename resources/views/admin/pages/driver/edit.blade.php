@@ -70,7 +70,7 @@
                                         <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
                                     </div><!-- input-group -->
                                 </div>
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> Password</label>
                                     <div>
                                         <input type="password" id="pass2" class="form-control" name="password" value="{{$driver->password}}" required />
@@ -81,7 +81,7 @@
                                     <div>
                                         <input type="password" class="form-control" required data-parsley-equalto="#pass2" value="{{$driver->password}}" />
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mb-3">
                                     <label class="form-label"><span class="custom-val-color">*</span> STATUS</label>
                                     <div class="row">

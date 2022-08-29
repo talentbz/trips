@@ -148,7 +148,7 @@
             list_url = "{{route('admin.bus.index')}}";
             $("select[name='bus_type']").on("change", function (e) { 
                 var select_val = $(e.currentTarget).val();
-                show_url = "{{route('admin.bus.show', ':bu'}}";
+                show_url = "{{route('admin.bus.show', ':bu')}}";
                 show_url = show_url.replace(':bu', select_val);
                 $.ajax({
                     url: show_url,

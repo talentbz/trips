@@ -74,23 +74,23 @@
                                         </div>
                                         <div class = "col-md-4">
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    checked value = "0">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="formCheckcolor1" name = "trip_frequancy[]"
+                                                     value = "1" {{in_array("1", (json_decode($trip->trip_frequancy))) == true ? "checked" : ""}}>
+                                                <label class="form-check-label" for="formCheckcolor1">
                                                     Sunday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                     value = "1">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="formCheckcolor2" name = "trip_frequancy[]"
+                                                     value = "2" {{in_array("2", (json_decode($trip->trip_frequancy))) == true ? "checked" : ""}}>
+                                                <label class="form-check-label" for="formCheckcolor2">
                                                     Monday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "2">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="formCheckcolor3" name = "trip_frequancy[]"
+                                                    value = "3" {{in_array("3", (json_decode($trip->trip_frequancy))) == true ? "checked" : ""}}>
+                                                <label class="form-check-label" for="formCheckcolor3">
                                                     Tuesday
                                                 </label>
                                             </div>
@@ -98,32 +98,32 @@
                                         </div>
                                         <div class = "col-md-4">
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "3">
+                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy[]"
+                                                    value = "4" {{in_array("4", (json_decode($trip->trip_frequancy))) == true ? "checked" : ""}}>
                                                 <label class="form-check-label" for="formCheckcolor4">
                                                     Wenesday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "4">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="formCheckcolor5" name = "trip_frequancy[]"
+                                                    value = "5" {{in_array("5", (json_decode($trip->trip_frequancy))) == true ? "checked" : ""}}>
+                                                <label class="form-check-label" for="formCheckcolor5">
                                                     Thursday
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "5">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="formCheckcolor6" name = "trip_frequancy[]"
+                                                    value = "6" {{in_array("6", (json_decode($trip->trip_frequancy))) == true ? "checked" : ""}}>
+                                                <label class="form-check-label" for="formCheckcolor6">
                                                     Friday
                                                 </label>
                                             </div>
                                         </div>
                                         <div class = "col-md-4">
                                             <div class="form-check form-check-warning">
-                                                <input class="form-check-input" type="checkbox" id="formCheckcolor4" name = "trip_frequancy"
-                                                    value = "6">
-                                                <label class="form-check-label" for="formCheckcolor4">
+                                                <input class="form-check-input" type="checkbox" id="formCheckcolor7" name = "trip_frequancy[]"
+                                                    value = "7" {{in_array("7", (json_decode($trip->trip_frequancy))) == true ? "checked" : ""}}>
+                                                <label class="form-check-label" for="formCheckcolor7">
                                                     Saturday
                                                 </label>
                                             </div>                                            
@@ -292,55 +292,47 @@
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/admin/trip/edit.js') }}"></script>
     <script>
-        $(document).ready(function(){
-            store = "{{route('admin.trip.update', ['trip' => $trip->id])}}";
+       $(document).ready(function(){
+            store = "{{route('admin.trip.store')}}";
             list_url = "{{route('admin.trip.index')}}";
-            // $("select[name='origin_city']").on("change", function (e) { 
-            //     var select_val = $(e.currentTarget).val();
-            //     show_url = "{{-- route('admin.miscellaneous.area.show', ['bu' => 1]) --}}";
-            //     show_url = show_url.replace(':bu', select_val);
-            //     $.ajax({
-            //         url: show_url,
-            //         method: 'get',
-            //         success: function (res) {
-            //             result = res.data;
-            //             if(result){
-            //                 for(i=0; i<result.length; i++ ){
-            //                     $("select[name='origin_area']").append('<option value="'+result[i].id+'">'+result[i].area_name_en+'</option>');
-            //                 }
-            //             }
-            //         },
-            //         error: function (res){
-            //             console.log(res)
-            //         },
-            //         cache: false,
-            //         contentType: false,
-            //         processData: false
-            //     })
-            // })
-            // $("select[name='destination_city']").on("change", function (e) { 
-            //     var select_val = $(e.currentTarget).val();
-            //     show_url = "{{-- route('admin.miscellaneous.area.show', ['bu' => 1]) --}}";
-            //     show_url = show_url.replace(':bu', select_val);
-            //     $.ajax({
-            //         url: show_url,
-            //         method: 'get',
-            //         success: function (res) {
-            //             result = res.data;
-            //             if(result){
-            //                 for(i=0; i<result.length; i++ ){
-            //                     $("select[name='destination_area']").append('<option value="'+result[i].id+'">'+result[i].area_name_en+'</option>');
-            //                 }
-            //             }
-            //         },
-            //         error: function (res){
-            //             console.log(res)
-            //         },
-            //         cache: false,
-            //         contentType: false,
-            //         processData: false
-            //     })
-            // })
+            origin_area = $("select[name='origin_area']");
+            destination_area = $("select[name='destination_area']");
+            
+            // display area when click origin_city 
+            $("select[name='origin_city']").on("change", function (e) { 
+                var id = $(e.currentTarget).val();
+                selectFunction(origin_area, id)
+            })
+            // display area when click destination_area 
+            $("select[name='destination_city']").on("change", function (e) { 
+                var id = $(e.currentTarget).val();
+                selectFunction(destination_area, id)
+            })
+
+            function selectFunction(select, id){
+                show_url = "{{route('admin.trip.show', ':trip')}}";
+                show_url = show_url.replace(':trip', id);
+                $.ajax({
+                    url: show_url,
+                    method: 'get',
+                    success: function (res) {
+                        result = res.data;
+                        if(result){
+                            select.empty();
+                            select.append("<option>Select area</option>");
+                            for(i=0; i<result.length; i++ ){
+                                select.append('<option value="'+result[i].area_name_en+'">'+result[i].area_name_en+'</option>');
+                            }
+                        }
+                    },
+                    error: function (res){
+                        console.log(res)
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                })
+            }
         });
     </script>
 @endsection

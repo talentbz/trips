@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <img src="{{ URL::asset ('/images/admin/add-bus.png') }}" alt="" width="100%">
+                    <img src="{{ URL::asset ('/images/admin/maintenance.png') }}" alt="" width="100%">
                 </div>
                 <div class="col-md-2"></div>
             </div>

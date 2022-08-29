@@ -21,8 +21,6 @@ $(document).ready(function(){
                     setInterval(function(){ 
                         location.href = list_url; 
                     }, 2000);
-                } else {
-                    toastr["warning"]("Trip  is already exist.");
                 }
             },
             error: function (errors){

@@ -85,13 +85,12 @@ class TripController extends Controller
             } 
             $trip = new Trip;
         }
-
         $trip->trip_name_en = $request->name_en;
         $trip->trip_name_ar = $request->name_ar;
         $trip->client_id = $request->client;
         $trip->trip_type = $request->trip_type;
         $trip->details = $request->details;
-        $trip->trip_frequancy = $request->trip_frequancy;
+        $trip->trip_frequancy = json_encode($request->trip_frequancy);
         $trip->first_trip_date = $request->first_trip_date;
         $trip->last_trip_date = $request->last_trip_date;
         $trip->origin_city = $request->origin_city;
@@ -127,6 +126,7 @@ class TripController extends Controller
     public function edit($id)
     {
         $trip = Trip::where('id', $id)->first();
+        // dd(in_array("5", (json_decode($trip->trip_frequancy))));
         $client = Client::get();
         $city = City::where('status', 1)->get();
         $area = Area::where('status',1)->get();

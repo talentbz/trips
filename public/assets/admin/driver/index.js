@@ -37,7 +37,6 @@ $(document).ready(function(){
     $('table').on('click', '.reset-password',function (e) {
         // var id =  $(this).attr('data-id')
         var url =  $(this).attr('data-src')
-        alert(url);
         $('#rest-form').submit(function(e){
             e.preventDefault();
             e.stopPropagation();
