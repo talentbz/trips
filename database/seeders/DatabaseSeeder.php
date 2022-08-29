@@ -157,8 +157,8 @@ class DatabaseSeeder extends Seeder
             'phone'               => '123456789',       
             'license_number'      => '111-2222',       
             'address'             => 'address1',       
-            'password'            => "123456",       
-            'user_name'           => 'user1',       
+            'password'            => Hash::make("123456"),       
+            'user_name'           => 'driver1',       
             'license_expiry_date' => '2021-07-08',     
             'status'              => 1,            
         ]);

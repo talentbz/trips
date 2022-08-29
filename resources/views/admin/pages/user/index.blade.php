@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-filter">
-                            <a href="{{route('admin.user.create')}}" class="btn btn-outline-warning btn-rounded waves-effect waves-light add-new"><i class="fas fa-plus"></i> ADD DRIVER</a> 
+                            <a href="{{route('admin.user.create')}}" class="btn btn-outline-warning btn-rounded waves-effect waves-light add-new"><i class="fas fa-plus"></i> ADD USER</a> 
                         </div>
                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100 datatable">
                             <thead>
@@ -39,8 +39,9 @@
                                         @endif    
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.user.edit', ['user' => $row->id])}}" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">Edit</button>
-                                        <a href="javsciript::void(0)" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-lightt">Rest Password</button>
+                                        <a href="{{route('admin.user.edit', ['user' => $row->id])}}" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">Edit</button>
+                                        <a href="javsciript::void(0)" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light reset-password" data-id="{{$row->id}}" data-src="{{route('admin.user.update', ['user' => $row->id])}}" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">Rest Password</button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -52,9 +53,49 @@
             </div> <!-- end col -->
         </div> <!-- end row -->
     </div>
+    <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0" id="myModalLabel">RESET PASSWORD</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form class="custom-validation" action="" id="rest-form">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label class="form-label"><span class="custom-val-color">*</span> PASSWORD</label>
+                                    <div>
+                                        <input type="password" id="pass2" class="form-control" name="password" required />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"><span class="custom-val-color">*</span> CONFIRM PASSWORD</label>
+                                    <div>
+                                        <input type="password" class="form-control" required data-parsley-equalto="#pass2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary waves-effect"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light save_button">Save</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @endsection
 @section('script')
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
 
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ URL::asset('/assets/admin/user/index.js') }}"></script>
 @endsection

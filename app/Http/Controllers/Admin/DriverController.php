@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\Hash;
 use App\Models\Driver;
 use DB, Validator, Exception, Image, URL;
 
@@ -55,6 +56,7 @@ class DriverController extends Controller
                 $driver = Driver::findOrFail($request->id);
             } else {    
                 $driver = new Driver;
+                $driver->password = $request->password;
             }
             $driver->name_en = $request->name_en;
             $driver->name_ar = $request->name_ar;
@@ -62,7 +64,6 @@ class DriverController extends Controller
             $driver->phone = $request->phone;
             $driver->license_number = $request->license_number;
             $driver->address = $request->address;
-            $driver->password = $request->password;
             $driver->user_name = $request->user_name;
             $driver->license_expiry_date = $request->license_expiry_date;
             $driver->status = $request->status;
@@ -118,7 +119,8 @@ class DriverController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $driver = Driver::where('id', $id)->update(['password' => Hash::make($request->password)]);
+        return response()->json(['result' => 'success']);
     }
 
     /**
