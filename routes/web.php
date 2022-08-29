@@ -31,6 +31,8 @@ Route::prefix('/admin')->middleware(['auth:web', 'Admin'])->group(function () {
     Route::resource('daily_trip', App\Http\Controllers\Admin\DailyTripController::class, ['as' => 'admin']);
     Route::resource('maintenance', App\Http\Controllers\Admin\MaintenanceController::class, ['as' => 'admin']);
     Route::resource('driver', App\Http\Controllers\Admin\DriverController::class, ['as' => 'admin']);
+    Route::resource('super_visor', App\Http\Controllers\Admin\SuperVisorController::class, ['as' => 'admin']);
+    Route::resource('user', App\Http\Controllers\Admin\UserController::class, ['as' => 'admin']);
 
     Route::prefix('/miscellaneous')->group(function () {
         Route::resource('city', App\Http\Controllers\Admin\Miscellaneous\CityController::class, ['as' => 'admin.miscellaneous']);

@@ -66,13 +66,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('admin.user.index')}}" class="waves-effect">
                         <i class="bx bx-user-circle"></i>
                         <span>Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{route('admin.super_visor.index')}}" class="waves-effect">
                         <i class="bx bx-list-ul"></i>
                         <span>App Supervisors</span>
                     </a>
