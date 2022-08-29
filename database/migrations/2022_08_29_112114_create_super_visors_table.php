@@ -21,7 +21,7 @@ class CreateSuperVisorsTable extends Migration
             $table->string('password');
             $table->string('user_name');
             $table->date('birthday');
-            $table->date('address')->nullable();
+            $table->string('address')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });
