@@ -22,6 +22,14 @@ $(document).ready(function(){
                         location.href = list_url; 
                     }, 2000);
                 }
+                if(res.error){
+                    for(i=0; i<res.error.length; i++){
+                        toastr["error"](res.error[i]);
+                    }
+                }
+                if(res.result == 'exist') {
+                    toastr["error"]("User Name is exist!");
+                }
             },
             error: function (errors){
                 toastr["warning"](errors);

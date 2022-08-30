@@ -10,6 +10,8 @@
 @section('content')
     <div class="content-warpper">
         <form class="custom-validation" action="" id="custom-form">
+            @csrf
+            <input type="hidden" name="id" value="{{$trip->id}}" />
             <div class="row">
                 <div class="col-md-7">
                     <div class="col-md-12">
@@ -282,7 +284,6 @@
 @endsection
 @section('script')
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
-
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.js') }}"></script>

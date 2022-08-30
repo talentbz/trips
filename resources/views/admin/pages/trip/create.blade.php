@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span>CLIENT</label>
-                                    <select class="form-select" name="client">
+                                    <select class="form-select" name="client" required>
                                         <option value="">Select Client</option>
                                         @foreach($client as $row)
                                         <option value="{{$row->id}}">{{$row->name_en}}</option>
@@ -47,7 +47,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="trip_type"
-                                                    id="trip_type_1" checked value = "1">
+                                                    id="trip_type_1" checked value = "1" >
                                                 <label class="form-check-label" for="trip_type_1">
                                                     Periodic
                                                 </label>
@@ -56,7 +56,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning">
                                                 <input class="form-check-input" type="radio" name="trip_type"
-                                                    id="trip_type_2" value = "0">
+                                                    id="trip_type_2" value = "0" >
                                                 <label class="form-check-label" for="trip_type_2">
                                                     Non-Periodic
                                                 </label>
@@ -152,7 +152,7 @@
                                     <label><span class="custom-val-color">*</span>ORIGIN</label>
                                     <div class = "row">
                                         <div class = "col-md-6">
-                                            <select class="form-select" name="origin_city">
+                                            <select class="form-select" name="origin_city" required>
                                                 <option value="">Select City</option>
                                                 @foreach($city as $row)
                                                 <option value="{{$row->id}}">{{$row->city_name_en}}</option>
@@ -160,7 +160,7 @@
                                             </select>  
                                         </div>
                                         <div class = "col-md-6">
-                                            <select class="form-select" name="origin_area">
+                                            <select class="form-select" name="origin_area" required>
                                                 <option>Select</option>
                                                
                                             </select> 
@@ -170,7 +170,7 @@
                                 <div class = "mb-3">
                                     <label for=""><span class = "custom-val-color">*</span>DEPARTURE TIME</label>
                                     <div class="input-group" id="timepicker-input-group1">
-                                        <input id="timepicker" type="text" class="form-control" data-provide="timepicker" name = "departure_time">
+                                        <input id="timepicker" type="text" class="form-control" data-provide="timepicker" name = "departure_time" required>
                                         <span class="input-group-text"><i class="mdi mdi-clock-outline"></i></span>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                                     <label><span class="custom-val-color">*</span>DESTINATION</label>
                                     <div class = "row">
                                         <div class = "col-md-6">
-                                            <select class="form-select" name="destination_city">
+                                            <select class="form-select" name="destination_city" required>
                                                 <option value="">Select City</option>
                                                 @foreach($city as $row)
                                                 <option value="{{$row->id}}">{{$row->city_name_en}}</option>
@@ -221,7 +221,7 @@
                                             </select>  
                                         </div>
                                         <div class = "col-md-6">
-                                            <select class="form-select" name="destination_area">
+                                            <select class="form-select" name="destination_area" required>
                                                 <option>Select</option>
                                                
                                             </select> 
@@ -231,7 +231,7 @@
                                 <div class = "mb-3">
                                     <label for=""><span class = "custom-val-color">*</span>ARRIVAL TIME</label>
                                     <div class="input-group" id="timepicker-input-group1">
-                                        <input id="timepicker" type="text" class="form-control" data-provide="timepicker" name = "arrival_time">
+                                        <input id="timepicker" type="text" class="form-control" data-provide="timepicker" name = "arrival_time" required>
                                         <span class="input-group-text"><i class="mdi mdi-clock-outline"></i></span>
                                     </div>
                                 </div>
@@ -316,7 +316,7 @@
                             select.empty();
                             select.append("<option>Select area</option>");
                             for(i=0; i<result.length; i++ ){
-                                select.append('<option value="'+result[i].area_name_en+'">'+result[i].area_name_en+'</option>');
+                                select.append('<option value="'+result[i].id+'">'+result[i].area_name_en+'</option>');
                             }
                         }
                     },

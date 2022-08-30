@@ -59,14 +59,18 @@ class TripController extends Controller
          * check the status validate.
          */ 
         $validator = Validator::make($request->all(), [
-            'status' => 'required',
+          
             'trip_type' => 'required',
+         //   'trip_frequency.*'=> 'required | array' ,            
             'show_trip_admin' => 'required',
+            'status' => 'required',
+
         ]);
         $attributeNames = array(
-            'status' => 'Status',
             'trip_type' => 'Trip Type',
-            'show_trip_admin' => 'Show Trip Admin',
+         //   'trip_frequency'=> 'Trip Frequency',            
+            'show_trip_admin' => 'Show Admin',
+            'status' => 'Status',
         );
         $validator->setAttributeNames($attributeNames);
         if($validator->fails()) {
@@ -77,6 +81,7 @@ class TripController extends Controller
          * if id is exist, then request data will update
          */ 
         if($request->id){
+            
             $trip = Trip::findOrFail($request->id);
         } else {    
             $exist_data = Trip::where('trip_name_en', $request->name_en)->get();

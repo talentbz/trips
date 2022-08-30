@@ -15,7 +15,7 @@ class CreateSuperVisorsTable extends Migration
     {
         Schema::create('super_visors', function (Blueprint $table) {
             $table->id();
-            $table->string('profile_image');
+            $table->string('profile_image')->nullable();
             $table->string('name');
             $table->string('phone');
             $table->string('password');

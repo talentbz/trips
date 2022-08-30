@@ -12,7 +12,7 @@ $(document).ready(function(){
         });
         $.ajax({
             url: store,
-            method: 'PUT',
+            method: 'post',
             data: $(this).serialize(),
             success: function (res) {
                 if(res.result == "success" ){
