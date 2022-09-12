@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
-@section('title') User @endsection
+@section('title') List of Users @endsection
+@section('page-title') List of Users @endsection
 @section('css')
 @endsection
 @section('content')

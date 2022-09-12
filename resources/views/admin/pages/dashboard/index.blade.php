@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 @section('title') Dashboard @endsection
+@section('page-title') Dashboard @endsection
 @section('css')
     <!-- <link href="{{ URL::asset('/assets/admin/pages/vehicle/style.css') }}" rel="stylesheet" type="text/css" /> -->
 @endsection

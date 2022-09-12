@@ -26,7 +26,7 @@
                 </a>
             </div>
     </div>
-
+    <h4 class="mt-3 text-uppercase">@yield('page-title')</h4>
     <div class="d-flex">
         <div class="dropdown d-none d-lg-inline-block ms-1">
         </div>
@@ -49,7 +49,6 @@
                 </form>
             </div>
         </div>
-        
     </div>
 </div>
 </header>

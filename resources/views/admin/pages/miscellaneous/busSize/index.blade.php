@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
-@section('title') Client @endsection
+@section('title') Bus Sizes @endsection
+@section('page-title') Bus Sizes @endsection
 @section('css')
 @endsection
 @section('content')
@@ -29,7 +30,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-check form-radio-warning mb-3">
                                                             <input class="form-check-input" type="radio" name="status"
-                                                                id="status_1" value="1">
+                                                                id="status_1" value="1" checked>
                                                             <label class="form-check-label" for="status_1">
                                                                 Active
                                                             </label>

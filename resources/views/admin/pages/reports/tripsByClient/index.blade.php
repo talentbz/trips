@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
-@section('title') Client @endsection
+@section('title') Trips Report By Client @endsection
+@section('page-title') Trips Report By Client @endsection
 @section('css')
 @endsection
 @section('content')

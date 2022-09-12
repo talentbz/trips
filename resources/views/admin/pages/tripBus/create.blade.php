@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
-@section('title') Client @endsection
+@section('title') Add Trip Bus @endsection
+@section('page-title') Add Trip Bus @endsection
 @section('css')
     <link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.css') }}" rel="stylesheet" type="text/css">
@@ -59,7 +60,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_1" value = "1">
+                                                    id="status_1" value = "1" checked>
                                                 <label class="form-check-label" for="status_1">
                                                     Active
                                                 </label>

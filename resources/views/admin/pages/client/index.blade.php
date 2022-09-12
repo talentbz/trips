@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
-@section('title') Client @endsection
+@section('title') List of Client @endsection
+@section('page-title') List of Clients @endsection
 @section('css')
 @endsection
 @section('content')

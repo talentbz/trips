@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
-@section('title') Driver @endsection
+@section('title') Trips Report By Driver @endsection
+@section('page-title') Trips Report By Driver @endsection
 @section('css')
 @endsection
 @section('content')

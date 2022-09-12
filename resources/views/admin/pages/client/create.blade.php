@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
-@section('title') Client @endsection
+@section('title') Add Client @endsection
+@section('page-title') Add Clients @endsection
 @section('css')
     <link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.css') }}" rel="stylesheet" type="text/css">
@@ -104,7 +105,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label"><span class="custom-val-color">*</span> RECORDE NUMBER</label>
+                                    <label class="form-label"><span class="custom-val-color">*</span> RECORD NUMBER</label>
                                     <div>
                                         <input type="text" class="form-control" name="recorde_number" required/>
                                     </div>
@@ -112,7 +113,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label"><span class="custom-val-color">*</span> EMail</label>
+                                    <label class="form-label"><span class="custom-val-color">*</span> EMAIL</label>
                                     <div>
                                         <input type="email" class="form-control" required parsley-type="email" name="email"/>
                                     </div>
@@ -147,7 +148,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning mb-3">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_1" value="1">
+                                                    id="status_1" value="1" checked>
                                                 <label class="form-check-label" for="status_1">
                                                     Active
                                                 </label>
