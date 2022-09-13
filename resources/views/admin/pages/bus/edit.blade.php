@@ -105,7 +105,7 @@
                                         <div class="col-md-6">
                                             <div class="form-check form-radio-warning">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status_2" value="0" {{$bus->status == 1 ? 'checked' :''}}>
+                                                    id="status_2" value="0" {{$bus->status == 0 ? 'checked' :''}}>
                                                 <label class="form-check-label" for="status_2">
                                                     Inactive
                                                 </label>

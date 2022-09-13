@@ -20,7 +20,7 @@
                             <h3 class="login-title">LOGIN</h3>
                         </div>
                         <div class="mb-3">
-                            <label for="username" class="form-label">Email</label>
+                            <label for="username" class="form-label">USERNAME</label>
                             <input name="email" type="email"
                                 class="form-control @error('email') is-invalid @enderror"
                                 value="{{ old('email', '') }}" id="username"
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
+                            <label class="form-label">PASSWORD</label>
                             <div
                                 class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
                                 <input type="password" name="password"
@@ -53,11 +53,10 @@
                         </div>
                     </form>
                 </div>
-                <div class="mt-4 text-center">
+                <div class="mt-5 text-center">
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class="forgot-password">Forgot your password?</a>
+                        <a href="{{ route('password.request') }}" class="forgot-password">FORGOT PASSWORD</a>
                     @endif
-
                 </div>
             </div>
         </div>
