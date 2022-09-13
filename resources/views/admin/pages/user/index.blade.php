@@ -33,11 +33,9 @@
                                     <td>{{$row->role==1 ? "Admin" : "Editor"}}</td>
                                     <td>{{$row->user_name}}</td>
                                     <td>
-                                        @if($row->status == 1)
-                                            <span class="badge badge-pill badge-soft-success font-size-12">Active</span>
-                                        @else
-                                            <span class="badge badge-pill badge-soft-warning font-size-12">Inactive</span>
-                                        @endif    
+                                        <div class="form-check form-switch form-switch-lg text-center">
+                                            <input class="form-check-input price-status mx-auto" type="checkbox" {{$row->status == 1 ? "checked" :""}} value="{{$row->id}}" >
+                                        </div>    
                                     </td>
                                     <td class="text-center">
                                         <a href="{{route('admin.user.edit', ['user' => $row->id])}}" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">Edit</button>
@@ -99,4 +97,11 @@
 
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/admin/user/index.js') }}"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script>
+        status_url = "{{route('admin.user.status')}}"
+    </script>
 @endsection

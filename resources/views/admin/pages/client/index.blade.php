@@ -2,6 +2,7 @@
 @section('title') List of Client @endsection
 @section('page-title') List of Clients @endsection
 @section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
 @endsection
 @section('content')
     <div class="content-warpper">
@@ -35,11 +36,11 @@
                                     <td>{{$row->contract_start_date}}</td>
                                     <td>{{$row->contract_end_date}}</td>
                                     <td class="text-center">
-                                        @if($row->status == 1)
-                                            <span class="badge badge-pill badge-soft-success font-size-12">Active</span>
-                                        @else
-                                            <span class="badge badge-pill badge-soft-warning font-size-12">Inactive</span>
-                                        @endif  
+                                        <!-- <input type="checkbox" id="switch8" switch="warning" {{$row->status == 1 ? "checked" :""}} value="{{$row->id}}" />
+                                        <label for="switch8" data-on-label="Yes" data-off-label="No"></label> -->
+                                        <div class="form-check form-switch form-switch-lg text-center">
+                                            <input class="form-check-input price-status mx-auto" type="checkbox" {{$row->status == 1 ? "checked" :""}} value="{{$row->id}}" >
+                                        </div>
                                     </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-outline-warning btn-sm btn-rounded waves-effect waves-light">View</button>
@@ -57,10 +58,46 @@
     </div>
 @endsection
 @section('script')
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script>
         $(document).ready(function(){
-            // $(".datatable").DataTable({
-            // })
-        })
+            $('.price-status').change(function(){
+                var status= $(this).prop('checked');
+                var id=$(this).val();
+                $.ajaxSetup({
+                    headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type:'PUT',
+                    dataType:'JSON',
+                    url:"{{route('admin.client.index')}}" + "/" + id,
+                    data:{status:status},
+                    success:function(res){
+                        if(res.result == "success" ){
+                            toastr["success"]("Success!!!");
+                        }
+                    }
+                })
+            })
+            if ( $.fn.dataTable.isDataTable( '#datatable' ) ) {
+                table = $('#datatable').DataTable({
+	                bDestroy: true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'csv', 'excel', 'pdf'
+                    ]
+                });
+            }
+            else {
+                table = $('#datatable').DataTable( {
+                    paging: false
+                } );
+            }
+        });
     </script>
 @endsection

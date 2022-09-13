@@ -120,4 +120,10 @@ class ClientTypeController extends Controller
     {
         //
     }
+
+    public function status(Request $request)
+    {
+        ClientType::where('id', $request->id)->update(['status' => toBoolean($request->status)]);
+        return response()->json(['result' => "success"]);
+    }
 }

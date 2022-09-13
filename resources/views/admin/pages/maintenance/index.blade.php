@@ -49,10 +49,20 @@
     </div>
 @endsection
 @section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script>
         $(document).ready(function(){
-            // $(".datatable").DataTable({
-            // })
+            if ( $.fn.dataTable.isDataTable( '#datatable' ) ) {
+                table = $('#datatable').DataTable({
+                    bDestroy: true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'csv', 'excel', 'pdf'
+                    ]
+                });
+            }
         })
     </script>
 @endsection

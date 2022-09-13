@@ -133,4 +133,10 @@ class DriverController extends Controller
     {
         //
     }
+
+    public function status(Request $request)
+    {
+        Driver::where('id', $request->id)->update(['status' => toBoolean($request->status)]);
+        return response()->json(['result' => "success"]);
+    }
 }

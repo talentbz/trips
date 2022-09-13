@@ -121,4 +121,10 @@ class CityController extends Controller
     {
         //
     }
+
+    public function status(Request $request)
+    {
+        City::where('id', $request->id)->update(['status' => toBoolean($request->status)]);
+        return response()->json(['result' => "success"]);
+    }
 }

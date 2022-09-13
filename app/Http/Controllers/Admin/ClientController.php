@@ -134,7 +134,8 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::where('id', $id)->update(['status' => toBoolean($request->status)]);
+        return response()->json(['result' => 'success']);
     }
 
     /**

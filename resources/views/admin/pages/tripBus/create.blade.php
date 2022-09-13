@@ -19,7 +19,7 @@
                                 
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> TRIP NAME </label>
-                                    <select class="form-select" name="trip_name">
+                                    <select class="form-select" name="trip_name" required>
                                         <option>Select Trip Name</option>
                                         @foreach($trip as $row)
                                         <option value="{{$row->id}}">{{$row->trip_name_en}}</option>
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> BUS SIZE </label>
-                                    <select class="form-select" name="bus_size">
+                                    <select class="form-select" name="bus_size" required>
                                         <option>Select Bus Size</option>
                                         @foreach($bus_size as $row)
                                         <option value="{{$row->id}}">{{$row->size}}</option>
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> BUS NO </label>
-                                    <select class="form-select" name="bus_no">
+                                    <select class="form-select" name="bus_no" required>
                                         <option>Select Bus No</option>
                                         @foreach($bus_no as $row)
                                         <option value="{{$row->id}}">{{$row->bus_no}}</option>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label><span class="custom-val-color">*</span> DRIVER NAME </label>
-                                    <select class="form-select" name="driver_name">
+                                    <select class="form-select" name="driver_name" required>
                                         <option>Select Driver Name</option>
                                         @foreach($driver as $row)
                                         <option value="{{$row->id}}">{{$row->name_en}}</option>

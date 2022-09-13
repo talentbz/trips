@@ -64,18 +64,38 @@ $(document).ready(function(){
             })
         })
     })
-    $("#wizard-picture").change(function(){
-        readURL(this);
-    });
-});
-
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-        }
-        reader.readAsDataURL(input.files[0]);
+    $('.price-status').change(function(){
+        var status= $(this).prop('checked');
+        var id=$(this).val();
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type:'POST',
+            dataType:'JSON',
+            url:status_url,
+            data:{status:status, id:id},
+            success:function(res){
+                if(res.result == "success" ){
+                    toastr["success"]("Success!!!");
+                }
+            }
+        })
+    })
+    if ( $.fn.dataTable.isDataTable( '#datatable' ) ) {
+        table = $('#datatable').DataTable({
+            bDestroy: true,
+            dom: 'Bfrtip',
+            buttons: [
+                'csv', 'excel', 'pdf'
+            ]
+        });
     }
-}
+    else {
+        table = $('#datatable').DataTable( {
+            paging: false
+        } );
+    }
+});

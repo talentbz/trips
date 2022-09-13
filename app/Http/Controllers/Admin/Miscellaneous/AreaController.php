@@ -131,4 +131,10 @@ class AreaController extends Controller
     {
         //
     }
+
+    public function status(Request $request)
+    {
+        Area::where('id', $request->id)->update(['status' => toBoolean($request->status)]);
+        return response()->json(['result' => "success"]);
+    }
 }
